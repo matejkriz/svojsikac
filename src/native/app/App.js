@@ -13,10 +13,7 @@ import { connect } from 'react-redux';
 // Pages
 import HomePage from '../home/HomePage';
 import IntlPage from '../intl/IntlPage';
-import MePage from '../me/MePage';
-import OfflinePage from '../offline/OfflinePage';
 import SignInPage from '../auth/SignInPage';
-import TodosPage from '../todos/TodosPage';
 
 let App = ({ appMenuShown, appShowMenu, appStarted }) => {
   // TODO: Add splash screen.
@@ -33,16 +30,13 @@ let App = ({ appMenuShown, appShowMenu, appStarted }) => {
       >
         <Page exactly pattern="/" component={HomePage} />
         <Page pattern="/intl" component={IntlPage} />
-        <Page pattern="/offline" component={OfflinePage} />
         <Page pattern="/signin" component={SignInPage} />
-        <Page pattern="/todos" component={TodosPage} />
-        <Page authorized pattern="/me" component={MePage} />
         {/* Miss does't work in React Native for some reason. */}
         {/* <Miss render={() => <Redirect to="/" />} /> */}
         <Match
           pattern="/"
           render={({ location: { pathname } }) => {
-            const urls = ['/', '/intl', '/offline', '/signin', '/todos', '/me'];
+            const urls = ['/', '/intl', '/signin'];
             if (urls.indexOf(pathname) !== -1) return null;
             return (
               <Redirect to="/" />

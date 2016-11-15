@@ -61,10 +61,6 @@ export default [
     "defaultMessage": "Fields",
   },
   {
-    "id": "app.links.users",
-    "defaultMessage": "Uživatelé",
-  },
-  {
     "id": "app.links.home",
     "defaultMessage": "Úvod",
   },
@@ -99,6 +95,10 @@ export default [
   {
     "id": "app.links.todos",
     "defaultMessage": "Úkoly",
+  },
+  {
+    "id": "app.links.users",
+    "defaultMessage": "Uživatelé",
   },
   {
     "id": "auth.email.emailLegend",
@@ -162,7 +162,7 @@ export default [
   },
   {
     "id": "footer.madeByHtml",
-    "defaultMessage": "stvořil",
+    "defaultMessage": "stořeno Actum pro Actum",
   },
   {
     "id": "intl.page.unreadCount",
@@ -187,29 +187,5 @@ export default [
   {
     "id": "notFound.p",
     "defaultMessage": "Možná máte špatný odkaz, nebo byla stránka odstraněna.",
-  },
-  {
-    "id": "todos.buttons.add100",
-    "defaultMessage": "Přidat 100 úkolů",
-  },
-  {
-    "id": "todos.buttons.clearAll",
-    "defaultMessage": "Vymazat vše",
-  },
-  {
-    "id": "todos.buttons.clearCompleted",
-    "defaultMessage": "Vymazat hotové",
-  },
-  {
-    "id": "todos.leftTodos",
-    "defaultMessage": "{leftTodos, plural, =0 {Nic, užívej :-)} one {Máš {leftTodos} úkol} other {Máš {leftTodos} úkolů}}",
-  },
-  {
-    "id": "todos.newTodo.placeholder",
-    "defaultMessage": "Co je třeba udělat?",
-  },
-  {
-    "id": "todos.todos.empty",
-    "defaultMessage": "Nic tu není...",
   },
 ];

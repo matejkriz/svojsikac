@@ -61,10 +61,6 @@ export default [
     "defaultMessage": "Campos",
   },
   {
-    "id": "app.links.users",
-    "defaultMessage": "Usuarios",
-  },
-  {
     "id": "app.links.home",
     "defaultMessage": "Inicio",
   },
@@ -99,6 +95,10 @@ export default [
   {
     "id": "app.links.todos",
     "defaultMessage": "Tareas",
+  },
+  {
+    "id": "app.links.users",
+    "defaultMessage": "Usuarios",
   },
   {
     "id": "auth.email.emailLegend",
@@ -187,29 +187,5 @@ export default [
   {
     "id": "notFound.p",
     "defaultMessage": "El link puede estar roto, o la página ha sido eliminada.",
-  },
-  {
-    "id": "todos.buttons.add100",
-    "defaultMessage": "Adicionar 100 Tareas",
-  },
-  {
-    "id": "todos.buttons.clearAll",
-    "defaultMessage": "Borrar Tareas",
-  },
-  {
-    "id": "todos.buttons.clearCompleted",
-    "defaultMessage": "Borrado Completo",
-  },
-  {
-    "id": "todos.leftTodos",
-    "defaultMessage": "{leftTodos, plural, =0 {Nada, Disfruta :-)} one {Usted tiene {leftTodos} tareas} other {Usted tiene {leftTodos} tareas}}",
-  },
-  {
-    "id": "todos.newTodo.placeholder",
-    "defaultMessage": "Que hay que hacer?",
-  },
-  {
-    "id": "todos.todos.empty",
-    "defaultMessage": "Esta bastante vacío aquí...",
   },
 ];
