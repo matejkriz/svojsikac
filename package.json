@@ -10,12 +10,16 @@
     "jest:watch": "jest --watch",
     "postinstall": "gulp native && gulp build --production",
     "start": "gulp",
-    "test": "gulp test"
+    "test": "gulp test",
+    "test:compile": "react-native run-ios --scheme \"Release\"",
+    "test:e2e": "mocha test/e2e --opts ./test/e2e/mocha.opts --compilers js:babel-core/register",
+    "test:server": "appium &"
   },
   "engines": {
     "node": ">=6"
   },
   "dependencies": {
+    "appium": "^1.6.1-beta",
     "autoprefixer": "^6.1.0",
     "babel-core": "^6.6.0",
     "babel-eslint": "^7.0.0",
@@ -34,8 +38,11 @@
     "babel-register": "^6.3.13",
     "babel-runtime": "^6.3.19",
     "bluebird": "^3.0.5",
+    "chai": "^3.5.0",
+    "chai-as-promised": "^6.0.0",
     "chroma-js": "^1.2.1",
     "classnames": "^2.1.1",
+    "colors": "^1.1.2",
     "compression": "^1.4.0",
     "copy-webpack-plugin": "^4.0.0",
     "css-loader": "^0.25.0",
@@ -110,6 +117,7 @@
     "url-loader": "^0.5.5",
     "uuid": "^2.0.2",
     "validator": "^6.0.0",
+    "wd": "^1.0.0",
     "webpack": "^1.12.3",
     "webpack-dev-middleware": "^1.2.0",
     "webpack-hot-middleware": "^2.8.1",
