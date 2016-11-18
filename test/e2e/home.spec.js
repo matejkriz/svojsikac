@@ -3,7 +3,7 @@ import { configure } from './helpers/logging';
 import { ios10Dev as deviceConfig } from './helpers/caps';
 import wd from 'wd';
 
-describe('Menu', function test() {
+describe('Home', function test() {
   this.timeout(300000);
   let driver;
 
@@ -19,9 +19,17 @@ describe('Menu', function test() {
 
   after(() => driver.quit());
 
-  it('items should not be visible by default', () =>
+  it('default text should be visible', () =>
     driver
-      .waitForElementByName('Todos', 10000)
+      .waitForElementByName('Actum app', 10000)
+      .isDisplayed((err, isVisible) =>
+        isVisible.should.be.ok,
+      ),
+  );
+
+  it('menu should not be visible by default', () =>
+    driver
+      .waitForElementById('menu--home-link', 10000)
       .isDisplayed((err, isVisible) =>
         isVisible.should.not.be.ok,
       ),
@@ -29,12 +37,12 @@ describe('Menu', function test() {
 
   it('could click on menu button', () =>
     driver
-      .elementById('menuBtn').click(),
+      .elementById('header--menu-button').click(),
   );
 
   it('items should be visible after click on menu button', () =>
     driver
-      .elementByName('Todos')
+      .elementById('menu--home-link')
       .isDisplayed((err, isVisible) =>
         isVisible.should.be.ok,
       ),

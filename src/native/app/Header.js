@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
 const Header = ({ menuShown, appShowMenu, title }) => (
   <View style={styles.header}>
     <Button
-      accessibilityLabel="menuBtn"
+      accessibilityLabel="header--menu-button"
       onPress={() => appShowMenu(!menuShown)}
       style={styles.button}
     >

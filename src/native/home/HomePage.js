@@ -12,14 +12,15 @@ const styles = StyleSheet.create({
 const HomePage = () => (
   <CenteredContainer>
     <Text style={styles.text}>
+      {'Actum app'}
+    </Text>
+    <Text style={styles.text}>
       {Platform.select({
         android: `
-          Actum app
           Double tap R on your keyboard to reload
           Shake or press menu button for dev menu
         `,
         ios: `
-          Actum app
           Press CMD+R to reload
           Press CMD+D for debug menu
         `,
