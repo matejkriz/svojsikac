@@ -13,8 +13,6 @@ import { connect } from 'react-redux';
 
 // Pages
 import HomePage from '../home/HomePage';
-import IntlPage from '../intl/IntlPage';
-import SignInPage from '../auth/SignInPage';
 
 let App = ({ appMenuShown, appShowMenu, appStarted }) => {
   // TODO: Add splash screen.

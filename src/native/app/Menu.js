@@ -1,5 +1,4 @@
 /* @flow */
-import type { State } from '../../common/types';
 import React from 'react';
 import linksMessages from '../../common/app/linksMessages';
 import theme from './themes/initial';
@@ -47,7 +46,7 @@ MenuLink = connect(
   { appShowMenu },
 )(MenuLink);
 
-const Menu = ({ viewer }) => (
+const Menu = () => (
   <ScrollView
     automaticallyAdjustContentInsets={false}
     contentContainerStyle={styles.contentContainer}
@@ -60,8 +59,4 @@ Menu.propTypes = {
   viewer: React.PropTypes.object,
 };
 
-export default connect(
-  (state: State) => ({
-    viewer: state.users.viewer,
-  }),
-)(Menu);
+export default Menu;

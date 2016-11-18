@@ -1,10 +1,8 @@
 /* @flow */
-import type { State } from '../../common/types';
 import React from 'react';
 import linksMessages from '../../common/app/linksMessages';
 import { FormattedMessage } from 'react-intl';
-import { Link, Space, Toolbar } from '../app/components';
-import { connect } from 'react-redux';
+import { Link, Toolbar } from '../app/components';
 
 const styles = {
   toolbar: {
@@ -15,7 +13,7 @@ const styles = {
   },
 };
 
-const Header = ({ viewer }) => (
+const Header = () => (
   <Toolbar style={styles.toolbar}>
     <Link bold inverted exactly to="/">
       <FormattedMessage {...linksMessages.home} />
@@ -27,8 +25,4 @@ Header.propTypes = {
   viewer: React.PropTypes.object,
 };
 
-export default connect(
-  (state: State) => ({
-    viewer: state.users.viewer,
-  }),
-)(Header);
+export default Header;
