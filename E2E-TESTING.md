@@ -64,6 +64,39 @@ driver.
 
 ```
 
+### Finding elements
+
+For inspecting components labels and ids you could use `Accessibility Inspector` available from Xcode's Developer tools.
+
+- Text elements could be found by name
+```
+ <Text>{'My name'}</Text> // driver.elementByName('My name')
+```
+- for other components `accessibilityLabel` could be defined (use [BEM](http://getbem.com/introduction/) for the labels)
+```
+<Menu>
+    <MyComponent accessibilityLabel="menu__my-component" />
+    { /* elementById('my-component') */ }
+
+    <MyComponent accessibilityLabel="menu__my-component--blue" blue />
+    { /* elementById('my-component--blue') */ }
+ </Menu>
+```
+If `MyComponent` doesn't get `accessibilityLabel` props, you may need to wrap it in `View` component.
+```
+<Menu>
+    <View accessibilityLabel="menu__my-component" >
+      <MyComponent />
+    </View>
+ </Menu>
+```
+- other option is `xpath` and it could locate UI elements without any changes in code using [XCUIElementType](https://developer.apple.com/reference/xctest/xcuielementtype?language=objc)
+```
+elementByXPath('//XCUIElementTypeStaticText') // find some Text element
+```
+
+[Appium docs about finding elements](https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/finding-elements.md)
+
 ### Resources
 [Appium setup for all platforms](https://github.com/appium/appium/tree/master/docs/en/appium-setup)
 
