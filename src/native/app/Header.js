@@ -39,7 +39,11 @@ const styles = StyleSheet.create({
 
 const Header = ({ menuShown, appShowMenu, title }) => (
   <View style={styles.header}>
-    <Button onPress={() => appShowMenu(!menuShown)} style={styles.button}>
+    <Button
+      accessibilityLabel="menuBtn"
+      onPress={() => appShowMenu(!menuShown)}
+      style={styles.button}
+    >
       <Icon name="ios-menu" style={styles.icon} />
     </Button>
     <Text style={styles.title}>{title}</Text>

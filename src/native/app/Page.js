@@ -8,11 +8,6 @@ import { injectIntl, intlShape } from 'react-intl';
 
 const titles = {
   '/': linksMessages.home,
-  '/intl': linksMessages.intl,
-  '/offline': linksMessages.offline,
-  '/signin': linksMessages.signIn,
-  '/todos': linksMessages.todos,
-  '/me': linksMessages.me,
 };
 
 const Page = ({ component: Component, intl, pattern, ...props }) => (

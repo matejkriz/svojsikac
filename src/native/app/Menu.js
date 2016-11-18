@@ -53,14 +53,6 @@ const Menu = ({ viewer }) => (
     contentContainerStyle={styles.contentContainer}
   >
     <MenuLink exactly to="/" message={linksMessages.home} />
-    <MenuLink to="/todos" message={linksMessages.todos} />
-    <MenuLink to="/intl" message={linksMessages.intl} />
-    <MenuLink to="/offline" message={linksMessages.offline} />
-    {viewer ?
-      <MenuLink to="/me" message={linksMessages.me} />
-    :
-      <MenuLink to="/signin" message={linksMessages.signIn} />
-    }
   </ScrollView>
 );
 

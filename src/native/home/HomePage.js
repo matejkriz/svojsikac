@@ -14,12 +14,12 @@ const HomePage = () => (
     <Text style={styles.text}>
       {Platform.select({
         android: `
-          Este App
+          Actum app
           Double tap R on your keyboard to reload
           Shake or press menu button for dev menu
         `,
         ios: `
-          Este App
+          Actum app
           Press CMD+R to reload
           Press CMD+D for debug menu
         `,

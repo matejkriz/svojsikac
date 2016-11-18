@@ -170,7 +170,7 @@ export default [
   },
   {
     "id": "footer.madeByHtml",
-    "defaultMessage": "Made with love by",
+    "defaultMessage": "Made by Actum for Actum",
   },
   {
     "id": "intl.page.unreadCount",
@@ -195,29 +195,5 @@ export default [
   {
     "id": "notFound.p",
     "defaultMessage": "The link may be broken, or the page may have been removed.",
-  },
-  {
-    "id": "todos.buttons.add100",
-    "defaultMessage": "Add 100 Todos",
-  },
-  {
-    "id": "todos.buttons.clearAll",
-    "defaultMessage": "Clear All",
-  },
-  {
-    "id": "todos.buttons.clearCompleted",
-    "defaultMessage": "Clear Completed",
-  },
-  {
-    "id": "todos.leftTodos",
-    "defaultMessage": "{leftTodos, plural, =0 {Nothing, enjoy :-)} one {You have {leftTodos} task} other {You have {leftTodos} tasks}}",
-  },
-  {
-    "id": "todos.newTodo.placeholder",
-    "defaultMessage": "What needs to be done?",
-  },
-  {
-    "id": "todos.todos.empty",
-    "defaultMessage": "It's rather empty here...",
   },
 ];
