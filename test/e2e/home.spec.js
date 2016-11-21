@@ -1,6 +1,6 @@
 import './helpers/setup';
 import { configure } from './helpers/logging';
-import { ios10Dev as deviceConfig } from './helpers/caps';
+import { ios10 as deviceConfig } from './helpers/caps';
 import wd from 'wd';
 
 describe('Home', function test() {
