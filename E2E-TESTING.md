@@ -5,8 +5,10 @@
 
 ### Installing dependencies
 ```
-npm install -g appium  # get appium
-npm install -g mocha   # get test runner
+yarn global add appium  # get appium
+yarn global add mocha   # get test runner
+yarn global add webdriver-manager # get webdriver-manager for browser testing
+webdriver-manager update # it will download the selenium server jar and chromedriver binary
 ```
 > Make sure you have not installed Node or Appium with sudo, otherwise you'll run into problems
 
@@ -26,7 +28,7 @@ You need to authorize use of the iOS Simulator by running the `authorize-ios`
 binary made available through `npm`. Install the program by running
 
 ```
-npm install -g authorize-ios
+yarn global add authorize-ios
 ```
 
 And the invoke the program using
@@ -43,9 +45,10 @@ You need to do this every time you install a new version of Xcode.
 ### Usage
 
 ```
-gulp ios -p           # build for simulator in production mode
-npm run test:server   # start appium server (run it in other terminal window)
-npm run test:e2e      # run the test example
+gulp ios -p            # build for simulator in production mode
+npm run test:server    # start appium server (run it in other terminal window)
+npm run test:webdriver # start webdriver server for running tests in browser
+npm run test:e2e       # run the test example
 ```
 
 Write your test inside `test/e2e/**` folder and name it with `.spec.js` extension. Example is in `test/e2e/menu.spec.js`.

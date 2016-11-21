@@ -12,7 +12,8 @@
     "start": "gulp",
     "test": "gulp test",
     "test:e2e": "mocha test/e2e --opts ./test/e2e/mocha.opts --compilers js:babel-core/register",
-    "test:server": "appium &"
+    "test:server": "appium &",
+    "test:webdriver": "webdriver-manager start &"
   },
   "engines": {
     "node": ">=6"

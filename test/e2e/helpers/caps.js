@@ -26,3 +26,15 @@ export const ios10Dev = {
   app: 'ios/build/Build/Products/Debug-iphonesimulator/Este.app',
   noReset: true, // simulator not restarted and AsyncStorage is preserved
 };
+
+export const androidDEV = {
+  app: 'android/app/build/outputs/apk/app-debug.apk',
+  platformName: 'Android',
+  platformVersion: '6',
+  deviceName: 'Android Emulator',
+};
+
+export const browser = {
+  browserName: 'chrome',
+  platform: 'ANY',
+};
