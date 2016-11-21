@@ -43,7 +43,7 @@ You need to do this every time you install a new version of Xcode.
 ### Usage
 
 ```
-npm run test:compile  # build for simulator
+gulp ios -p           # build for simulator in production mode
 npm run test:server   # start appium server (run it in other terminal window)
 npm run test:e2e      # run the test example
 ```
