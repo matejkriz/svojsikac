@@ -1,23 +1,23 @@
 # Appium
-4339 stars
-792 open issues
-
 [Homepage - https://github.com/appium/appium](https://github.com/appium/appium)
 
-- multiplatform
+
 
 ### Installing dependencies
 ```
 npm install -g appium  # get appium
 npm install -g mocha   # get test runner
 ```
+> Make sure you have not installed Node or Appium with sudo, otherwise you'll run into problems
+
+Prepare iOS and Android environments following the [RN Getting Started](https://facebook.github.io/react-native/docs/getting-started.html) for both platforms if you have not done it yet. For Android don't forget to set up your Android Virtual Device.
+
 
 With Xcode 8 you will need to install Carthage dependency manager also:
 ```
 brew install carthage
 ```
 
-Make sure you have not installed Node or Appium with sudo, otherwise you'll run into problems
 
 
 ### Authorizing iOS on the computer
@@ -146,7 +146,6 @@ xcode-select -p
 ```
 
 # Detox
-`59 stars, 15 issues`
 
 ## looks promising, but not ready for production yet
 
@@ -155,11 +154,3 @@ xcode-select -p
 - iOS only
 - only Xcode 7.3 so iOS 9 at this time https://github.com/wix/detox/issues/44
 - react-native 0.33.1 or **lower!** https://github.com/wix/detox/issues/43
-
-otherwise runs nicely and has prepared testing workflow for example:
-```
-simulator.reloadReactNativeApp
-simulator.relaunchApp
-simulator.deleteAndRelaunchApp
-...
-```
