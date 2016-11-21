@@ -3,7 +3,7 @@ import React from 'react';
 import linksMessages from '../../common/app/linksMessages';
 import theme from './themes/initial';
 import { FormattedMessage, Link } from './components';
-import { ScrollView, StyleSheet } from 'react-native';
+import { ScrollView, StyleSheet, View } from 'react-native';
 import { appShowMenu } from '../../common/app/actions';
 import { connect } from 'react-redux';
 
@@ -51,7 +51,9 @@ const Menu = () => (
     automaticallyAdjustContentInsets={false}
     contentContainerStyle={styles.contentContainer}
   >
-    <MenuLink exactly to="/" message={linksMessages.home} />
+    <View accessibilityLabel="menu__home-link">
+      <MenuLink exactly to="/" message={linksMessages.home} />
+    </View>
   </ScrollView>
 );
 
