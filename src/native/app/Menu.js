@@ -51,7 +51,7 @@ const Menu = () => (
     automaticallyAdjustContentInsets={false}
     contentContainerStyle={styles.contentContainer}
   >
-    <View accessibilityLabel="menu--home-link">
+    <View accessibilityLabel="menu__home-link">
       <MenuLink exactly to="/" message={linksMessages.home} />
     </View>
   </ScrollView>

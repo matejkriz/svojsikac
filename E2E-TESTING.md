@@ -76,10 +76,10 @@ For inspecting components labels and ids you could use `Accessibility Inspector`
 ```
 <Menu>
     <MyComponent accessibilityLabel="menu__my-component" />
-    { /* elementById('my-component') */ }
+    { /* elementById('menu__my-component') */ }
 
     <MyComponent accessibilityLabel="menu__my-component--blue" blue />
-    { /* elementById('my-component--blue') */ }
+    { /* elementById('menu__my-component--blue') */ }
  </Menu>
 ```
 If `MyComponent` doesn't get `accessibilityLabel` props, you may need to wrap it in `View` component.

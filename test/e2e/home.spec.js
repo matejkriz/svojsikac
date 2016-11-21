@@ -29,7 +29,7 @@ describe('Home', function test() {
 
   it('menu should not be visible by default', () =>
     driver
-      .waitForElementById('menu--home-link', 10000)
+      .waitForElementById('menu__home-link', 10000)
       .isDisplayed((err, isVisible) =>
         isVisible.should.not.be.ok,
       ),
@@ -37,12 +37,12 @@ describe('Home', function test() {
 
   it('could click on menu button', () =>
     driver
-      .elementById('header--menu-button').click(),
+      .elementById('header__menu-button').click(),
   );
 
   it('items should be visible after click on menu button', () =>
     driver
-      .elementById('menu--home-link')
+      .elementById('menu__home-link')
       .isDisplayed((err, isVisible) =>
         isVisible.should.be.ok,
       ),
