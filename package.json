@@ -19,7 +19,10 @@
     "node": ">=6"
   },
   "jest": {
-    "testPathIgnorePatterns": ["/node_modules/", "<rootDir>/test/e2e"]
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "<rootDir>/test/e2e"
+    ]
   },
   "dependencies": {
     "appium": "^1.6.1-beta",

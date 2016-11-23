@@ -8,11 +8,11 @@
 yarn global add appium  # get appium
 yarn global add mocha   # get test runner
 yarn global add webdriver-manager # get webdriver-manager for browser testing
-webdriver-manager update # it will download the selenium server jar and chromedriver binary
 ```
 > Make sure you have not installed Node or Appium with sudo, otherwise you'll run into problems
 
-Prepare iOS and Android environments following the [RN Getting Started](https://facebook.github.io/react-native/docs/getting-started.html) for both platforms if you have not done it yet. For Android don't forget to set up your Android Virtual Device.
+Prepare iOS and Android environments following the [RN Getting Started](https://facebook.github.io/react-native/docs/getting-started.html) for both platforms if you have not done it yet.
+> For Android don't forget to set up your Android Virtual Device! Use **Android 6** (API level **23**)
 
 
 With Xcode 8 you will need to install Carthage dependency manager also:
@@ -45,13 +45,25 @@ You need to do this every time you install a new version of Xcode.
 ### Usage
 
 ```
-gulp ios -p            # build for simulator in production mode
-npm run test:server    # start appium server (run it in other terminal window)
-npm run test:webdriver # start webdriver server for running tests in browser
-npm run test:e2e       # run the test example
+gulp test-e2e -p -d ios       # run tests on ios in release mode
+gulp test-e2e -d ios          # run tests on ios in debug mode
+gulp test-e2e                 # run tests on browser in debug mode (browser is default)
+gulp test-e2e -p -d browser   # run tests on browser in release mode
+gulp test-e2e -d android      # run tests on ios in debug mode
+gulp test-e2e -d ios -s menu  # run only tests in folder test/e2e/native/home/**
+android avd &                 # open android virtual device manager so you could start simulator
 ```
+- use `-p` or `--production` to test against app in release mode
+- use `-d` or `--device` with `android` or `browser` or `ios` to select platform for testing (only first letter is important, so you could use `gulp test-e2e -p -d a` and test will run in release mode on Android)
+- use `-s` or `--suite` to run tests only from one subfolder e.g. `-s menu ` will run  tests from `test/e2e/native/home/**` only
 
-Write your test inside `test/e2e/**` folder and name it with `.spec.js` extension. Example is in `test/e2e/menu.spec.js`.
+> For **Android**, simulator must be running before you call `gulp test-e2e -d a`! You could start it (if you've gone through all the steps from [RN Getting Started](https://facebook.github.io/react-native/docs/getting-started.html) for Android) using `android avd` command.
+
+> Run device with Android 6.0 (API 23)
+
+Put your test inside `test/e2e/browser/**` or `test/e2e/native/**` folder and name it with `.spec.js` extension. Example is in `test/e2e/native/menu.spec.js`.
+
+> If you use gulp test-e2e, test cases in `test/e2e/native/**` folder will run only on Android or iOS, whereas test cases inside `test/e2e/browser/**` will run only in Chrome browser.
 
 Example of basic WD methods with description:
 ```

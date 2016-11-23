@@ -1,6 +1,6 @@
-import init from './helpers/setup';
+import init from '../helpers/setup';
 
-init('ios10', (driver) => {
+init((driver) => {
   describe('Home', () => {
     it('default text should be visible', () =>
       driver

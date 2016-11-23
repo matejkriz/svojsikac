@@ -9,14 +9,18 @@ chai.use(chaiAsPromised);
 chai.should();
 chaiAsPromised.transferPromiseness = wd.transferPromiseness;
 
-const serverConfig = {
-  host: 'localhost',
-  port: 4723, // default appium port
-};
 
-export default function (platform, callback) {
-  const desired = caps[platform] || caps.ios10; // FIXME: configurable using gulp
-  if (platform === 'browser') serverConfig.port = 4444; // default webdriver-manager port
+export default function (callback) {
+  const testEnv = process.env.TEST_ENV || 'browser';
+  const isBrowser = testEnv === 'browser';
+  const nodeEnv = process.env.NODE_ENV === 'production' ? 'release' : 'debug';
+
+  const serverConfig = {
+    host: 'localhost',
+    port: isBrowser ? 4444 : 4723, // default ports for webdriver-manager : appium
+  };
+  const desired = caps[testEnv][nodeEnv];
+
   describe('Initiate tests', function test() {
     this.timeout(900000);
     const driver = wd.promiseChainRemote(serverConfig);
@@ -27,10 +31,11 @@ export default function (platform, callback) {
       before(() => {
         configure(driver);
 
-        if (platform === 'browser') {
+        if (isBrowser) {
           return driver
             .init(desired)
-            .get('http://localhost:3000');
+            .sleep(1000)
+            .get(desired.app + (process.env.PORT || '3000'));
         }
         return driver.init(desired);
       });

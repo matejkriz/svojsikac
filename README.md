@@ -47,9 +47,9 @@ React Native: [Getting Started](https://facebook.github.io/react-native/docs/get
 - `gulp favicon` create universal favicon
 
 ## E2E Tasks
-- `gulp build -p` build for simulator in production mode
-- `npm run test:server` start appium server (run it in other terminal window)
-- `npm run test:e2e` run e2e tests
+- `gulp test-e2e [-p] -d [ios|android|browser|i|a|b] [-s ${folderName}]` start E2E tests for selected platform, possibly in production mode
+- `android avd &` open AVD manager to start Android simulator
+
 
 More info in separate document [E2E-TESTING.md](https://github.com/actum/devstack/blob/master/E2E-TESTING.md)
 
