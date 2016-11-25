@@ -44,6 +44,10 @@ You need to do this every time you install a new version of Xcode.
 
 ### Usage
 
+> "Be patient. Good things come to those who wait."
+>
+> It could take more than five minutes...
+
 ```
 gulp test-e2e -p -d ios       # run tests on ios in release mode
 gulp test-e2e -d ios          # run tests on ios in debug mode
