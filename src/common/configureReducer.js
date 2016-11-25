@@ -1,12 +1,9 @@
 /* @flow weak */
 import type { Action, State } from './types';
 import app from './app/reducer';
-import auth from './auth/reducer';
 import config from './config/reducer';
 import device from './device/reducer';
 import intl from './intl/reducer';
-import themes from './themes/reducer';
-import users from './users/reducer';
 import { combineReducers } from 'redux';
 import { fieldsReducer as fields } from './lib/redux-fields';
 
@@ -34,13 +31,10 @@ const resetStateOnSignOutReducer = (reducer, initialState) => (
 const configureReducer = (initialState: Object) => {
   let reducer = combineReducers({
     app,
-    auth,
     config,
     device,
     fields,
     intl,
-    themes,
-    users,
   });
 
   // The power of higher-order reducers, http://slides.com/omnidan/hor

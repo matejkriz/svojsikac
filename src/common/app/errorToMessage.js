@@ -1,5 +1,4 @@
 /* @flow */
-import authErrorMessages from '../auth/errorMessages';
 import { ValidationError } from '../lib/validation';
 import { firebaseMessages } from '../lib/redux-firebase';
 
@@ -7,9 +6,7 @@ const isInnocuousError = error =>
   error.code === 'auth/popup-closed-by-user'; // Firebase stuff.
 
 const validationErrorToMessage = error => ({
-  message:
-    authErrorMessages[error.name] ||
-    firebaseMessages[error.name],
+  message: firebaseMessages[error.name],
   values: error.params,
 });
 
