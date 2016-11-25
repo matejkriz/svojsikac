@@ -11,15 +11,18 @@
     "postinstall": "gulp native && gulp build --production",
     "start": "gulp",
     "test": "gulp test",
-    "test:compile": "react-native run-ios --scheme \"Release\"",
     "test:e2e": "mocha test/e2e --opts ./test/e2e/mocha.opts --compilers js:babel-core/register",
-    "test:server": "appium &"
+    "test:server": "appium &",
+    "test:webdriver": "webdriver-manager start &"
   },
   "engines": {
     "node": ">=6"
   },
   "jest": {
-    "testPathIgnorePatterns": ["/node_modules/", "<rootDir>/test/e2e"]
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "<rootDir>/test/e2e"
+    ]
   },
   "dependencies": {
     "appium": "^1.6.1-beta",

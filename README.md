@@ -33,6 +33,7 @@ React Native: [Getting Started](https://facebook.github.io/react-native/docs/get
 
 - `gulp` run web app in development mode
 - `gulp ios` run iOS app in development mode
+- `gulp ios -p` run iOS app in production mode
 - `gulp android` run Android app in development mode
 - `gulp -p` run web app in production mode
 - `gulp -f` run web app in development mode, but only browser source rebuilds on file changes
@@ -46,9 +47,9 @@ React Native: [Getting Started](https://facebook.github.io/react-native/docs/get
 - `gulp favicon` create universal favicon
 
 ## E2E Tasks
-- `npm run test:compile` build for simulator
-- `npm run test:server` start appium server (run it in other terminal window)
-- `npm run test:e2e` run e2e tests
+- `gulp test-e2e [-p] -d [ios|android|browser|i|a|b] [-s ${folderName}]` start E2E tests for selected platform, possibly in production mode
+- `android avd &` open AVD manager to start Android simulator
+
 
 More info in separate document [E2E-TESTING.md](https://github.com/actum/devstack/blob/master/E2E-TESTING.md)
 

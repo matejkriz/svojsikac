@@ -1,3 +1,4 @@
+import args from './support/args';
 import bg from 'gulp-bg';
 import gulp from 'gulp';
 
@@ -5,5 +6,5 @@ import gulp from 'gulp';
 // 1) delete ios/build directory
 // 2) reset content and settings in iOS simulator
 gulp.task('ios', ['native'], bg(
-  'react-native', 'run-ios', '--simulator', 'iPhone 5s',
+  'react-native', 'run-ios', '--scheme', args.production ? 'Release' : 'Debug',
 ));
