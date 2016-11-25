@@ -2,7 +2,6 @@
 import type { Action, Deps } from '../types';
 import { Observable } from 'rxjs/Observable';
 import { REHYDRATE } from 'redux-persist/constants';
-import { onAuth, signInDone, signInFail } from '../auth/actions';
 
 export const appError = (error: Object): Action => ({
   type: 'APP_ERROR',
@@ -43,7 +42,7 @@ const appStartEpic = (action$: any) =>
     .map(appStarted);
 
 const appStartedFirebaseEpic = (action$: any, deps: Deps) => {
-  const { firebase, firebaseAuth, getState } = deps;
+  const { firebase, getState } = deps;
 
   const appOnline$ = Observable.create((observer) => {
     const onValue = (snap) => {
@@ -57,38 +56,9 @@ const appStartedFirebaseEpic = (action$: any, deps: Deps) => {
     };
   });
 
-  // firebase.google.com/docs/reference/js/firebase.auth.Auth#onAuthStateChanged
-  const onAuth$ = Observable.create((observer) => {
-    const unsubscribe = firebaseAuth().onAuthStateChanged((firebaseUser) => {
-      observer.next(onAuth(firebaseUser));
-    });
-    return unsubscribe;
-  });
-
-  const signInAfterRedirect$ = Observable.create((observer) => {
-    let unsubscribed = false;
-    firebaseAuth().getRedirectResult()
-      .then(({ user: firebaseUser }) => {
-        if (unsubscribed || !firebaseUser) return;
-        observer.next(signInDone(firebaseUser));
-      })
-      .catch((error) => {
-        if (unsubscribed) return;
-        observer.error(signInFail(error));
-      });
-    return () => {
-      unsubscribed = true;
-    };
-  });
-
   const streams = [
     appOnline$,
-    onAuth$,
   ];
-
-  if (process.env.IS_BROWSER) {
-    streams.push(signInAfterRedirect$);
-  }
 
   return action$
     .filter((action: Action) => action.type === 'APP_STARTED')

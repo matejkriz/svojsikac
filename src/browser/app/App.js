@@ -30,10 +30,9 @@ const bootstrap4Metas: any = [
   },
 ];
 
-let App = ({ currentLocale, currentTheme }) => (
+let App = ({ currentLocale }) => (
   <ThemeProvider
-    key={currentTheme} // github.com/yahoo/react-intl/issues/234#issuecomment-163366518
-    theme={themes[currentTheme] || themes.initial}
+    theme={themes.initial}
   >
     <Container>
       <Helmet
@@ -61,13 +60,11 @@ let App = ({ currentLocale, currentTheme }) => (
 
 App.propTypes = {
   currentLocale: React.PropTypes.string.isRequired,
-  currentTheme: React.PropTypes.string,
 };
 
 App = connect(
   (state: State) => ({
     currentLocale: state.intl.currentLocale,
-    currentTheme: state.themes.currentTheme,
   }),
 )(App);
 
