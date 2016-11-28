@@ -70,6 +70,15 @@ More info in separate document [E2E-TESTING.md](https://github.com/actum/devstac
 - change `src/common/app/favicons/original/favicon.png`, then `gulp favicon` and `gulp -p`
 - modify your FB app_id e.g. for [iOS](https://developers.facebook.com/docs/ios/getting-started/#configure-xcode-project)
 
+## Updates from devstack to your project
+
+- create branch in your project's repo (e.g. `devstack-update`) and push it
+- add devstack as remote to your project
+- merge branch from devstack remote to `devstack-update`
+- merge your project's `master` to `devstack-update`
+- solve eventual conflicts
+- create PR from `devstack-update` to your `master`
+
 ## Links
 
 - [este wiki](https://github.com/este/este/wiki)
