@@ -73,7 +73,7 @@ More info in separate document [E2E-TESTING.md](https://github.com/actum/devstac
 ## Updates from devstack to your project
 
 - create branch in your project's repo (e.g. `devstack-update`) and push it
-- add devstack as remote to your project
+- add devstack as remote to your project (`git remote add devstack https://github.com/actum/devstack.git`)
 - merge branch from devstack remote to `devstack-update`
 - merge your project's `master` to `devstack-update`
 - solve eventual conflicts
