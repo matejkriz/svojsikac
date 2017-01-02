@@ -15,8 +15,6 @@ if (!process.env.NODE_ENV) {
 
 polyfillLocales(global, config.locales);
 
-global.Promise = require('../common/configureBluebird');
-
 global.webpackIsomorphicTools = new WebpackIsomorphicTools(webpackIsomorphicAssets)
   .server(rootDir, () => {
     require('./main');

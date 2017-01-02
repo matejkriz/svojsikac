@@ -1,10 +1,7 @@
 /* @flow weak */
-// Damn, by feature importing doesn't work in Node.js.
-// import firebase from 'firebase/app';
-// import 'firebase/auth';
-// import 'firebase/database';
-// So we have to import everything.
-import firebase from 'firebase';
+
+import Firebase from 'firebase/app';
+import 'firebase/database';
 import validate from './validate';
 
 // Ensure only one Firebase instance. I don't know how costly new instance is
@@ -13,11 +10,9 @@ let firebaseDeps = null;
 
 const createFirebaseDeps = (firebaseConfig) => {
   if (!firebaseDeps) {
-    firebase.initializeApp(firebaseConfig);
+    Firebase.initializeApp(firebaseConfig);
     firebaseDeps = {
-      firebase: firebase.database().ref(),
-      firebaseAuth: firebase.auth,
-      firebaseDatabase: firebase.database,
+      firebase: Firebase.database().ref(),
     };
   }
   // // Check whether Firebase works.
