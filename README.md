@@ -45,6 +45,7 @@ React Native: [Getting Started](https://facebook.github.io/react-native/docs/get
 - `gulp messages-check` check missing and unused translations
 - `gulp messages-clear` remove unused translations
 - `gulp favicon` create universal favicon
+- `npm run build-size-check` display info about latest build
 
 ## E2E Tasks
 - `gulp test-e2e [-p] -d [ios|android|browser|i|a|b] [-s ${folderName}]` start E2E tests for selected platform, possibly in production mode
