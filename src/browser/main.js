@@ -17,7 +17,7 @@ const reportingMiddleware = configureReporting({
 
 const store = configureStore({
   initialState,
-  platformDeps: { uuid, storageEngine: localforage },
+  platformDeps: { storageEngine: localforage, uuid },
   platformMiddleware: [reportingMiddleware],
 });
 
