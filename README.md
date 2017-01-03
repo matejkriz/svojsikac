@@ -45,18 +45,8 @@ More info in separate document [E2E-TESTING.md](https://github.com/actum/devstac
 
 - `gulp build -p` build app for production
 - `npm test` run all checks and tests
-- `node src/server` start app, remember to set NODE_ENV
-- `gulp to-html` render app to HTML for static hosting like [Firebase](https://www.firebase.com/features.html#features-hosting)
-- `gulp deploy-heroku` deploy [Heroku](https://www.heroku.com/) app
-- `gulp deploy-firebase` deploy [Firebase](https://firebase.google.com/) app
-- `gulp deploy-firebase-database` deploy Firebase database only
 
-## Customize App
-
-- set name in `package.json`
-- set locales, firebaseUrl, sentryUrl, etc. in `src/server/config.js`
-- change `src/common/app/favicons/original/favicon.png`, then `gulp favicon` and `gulp -p`
-- modify your FB app_id e.g. for [iOS](https://developers.facebook.com/docs/ios/getting-started/#configure-xcode-project)
+See [complete list of production tasks](https://github.com/este/este#production-tasks) on Este.
 
 ## Updates from devstack to your project
 
@@ -69,4 +59,4 @@ More info in separate document [E2E-TESTING.md](https://github.com/actum/devstac
 
 ## Links
 
-- [este wiki](https://github.com/este/este/wiki)
+- [Este wiki](https://github.com/este/este/wiki)
