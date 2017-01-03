@@ -13,7 +13,8 @@
     "test": "gulp test",
     "test:e2e": "mocha test/e2e --opts ./test/e2e/mocha.opts --compilers js:babel-core/register",
     "test:server": "appium &",
-    "test:webdriver": "webdriver-manager start &"
+    "test:webdriver": "webdriver-manager start &",
+    "build-size-check": "source-map-explorer build/app-*.js"
   },
   "engines": {
     "node": ">=6"
@@ -43,7 +44,6 @@
     "babel-preset-stage-1": "^6.3.13",
     "babel-register": "^6.3.13",
     "babel-runtime": "^6.3.19",
-    "bluebird": "^3.0.5",
     "chai": "^3.5.0",
     "chai-as-promised": "^6.0.0",
     "chroma-js": "^1.2.1",
@@ -129,5 +129,8 @@
     "webpack-hot-middleware": "^2.8.1",
     "webpack-isomorphic-tools": "^2.2.24",
     "yargs": "^6.0.0"
+  },
+  "devDependencies": {
+    "source-map-explorer": "^1.3.3"
   }
 }
