@@ -8,6 +8,13 @@ import { FormattedMessage } from './';
 import { connect } from 'react-redux';
 
 const styles = StyleSheet.create({
+  alert: {
+    borderBottomWidth: 1,
+    bottom: 0,
+    left: 0,
+    position: 'absolute',
+    right: 0,
+  },
   container: {
     height: 0,
     left: 0,
@@ -15,13 +22,6 @@ const styles = StyleSheet.create({
     position: 'absolute',
     right: 0,
     zIndex: 1,
-  },
-  alert: {
-    borderBottomWidth: 1,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
-    right: 0,
   },
   message: {
     color: theme.bright(theme.inverseTextColor),

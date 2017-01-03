@@ -18,8 +18,8 @@ const styles = StyleSheet.create({
     padding: theme.fontSize * 0.625,
   },
   tabLinkActive: {
-    color: theme.bright(theme.inverseTextColor),
     backgroundColor: theme.bright(theme.inverseBackgroundColor),
+    color: theme.bright(theme.inverseTextColor),
   },
 });
 
