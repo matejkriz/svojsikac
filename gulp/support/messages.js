@@ -11,7 +11,7 @@ export const messagesToCode = (messages: Array<Object>) => {
     .replace(/\n {2}\}/g, ',\n  }')
     .replace(/\}\n]/g, '},\n]');
 
-  return `/* eslint-disable max-len, quote-props, quotes */
+  return `/* eslint-disable max-len, quote-props, quotes, sort-keys */
 export default ${messagesString};
 `;
 };
