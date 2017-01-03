@@ -1,6 +1,3 @@
-
-[![Dependency Status](https://david-dm.org/actum/devstack.svg)](https://david-dm.org/actum/devstack)
-
 > Starter kit for universal full–fledged React apps. One stack for browser, mobile, server.
 
 > Based on [Este.js](https://github.com/este/este)
