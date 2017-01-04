@@ -12,6 +12,11 @@ const iOSDefaultStatusBarHeight = 20;
 const paddingTopOffset = Platform.OS === 'ios' ? iOSDefaultStatusBarHeight : 0;
 
 const styles = StyleSheet.create({
+  button: {
+    alignItems: 'center',
+    top: 2,
+    width: theme.fontSize * 3,
+  },
   header: {
     alignItems: 'center', // align items in the cross-axis flexDirection
     backgroundColor: theme.brandPrimary,
@@ -22,18 +27,13 @@ const styles = StyleSheet.create({
     paddingBottom: theme.fontSize * 0.625,
     paddingTop: (theme.fontSize * 0.625) + paddingTopOffset,
   },
-  title: {
-    color: theme.inverseTextColor,
-    fontSize: theme.fontSizeH5,
-  },
-  button: {
-    alignItems: 'center',
-    top: 2,
-    width: theme.fontSize * 3,
-  },
   icon: {
     color: theme.inverseTextColor,
     fontSize: theme.fontSizeH4,
+  },
+  title: {
+    color: theme.inverseTextColor,
+    fontSize: theme.fontSizeH5,
   },
 });
 

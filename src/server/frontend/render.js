@@ -67,7 +67,7 @@ const renderBody = (store, context, location, fetchPromises) => {
       </ServerFetchProvider>
     </Redux>,
   );
-  return { markup, helmet: Helmet.rewind() };
+  return { helmet: Helmet.rewind(), markup };
 };
 
 const renderScripts = (state, appJsFilename) =>

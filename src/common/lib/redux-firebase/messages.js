@@ -11,14 +11,6 @@ const messages = defineMessages({
     defaultMessage: 'The specified email is not a valid email.',
     id: 'firebase.error.INVALID_EMAIL',
   },
-  'auth/user-not-found': {
-    defaultMessage: 'The specified user account does not exist.',
-    id: 'firebase.error.INVALID_USER',
-  },
-  'auth/wrong-password': {
-    defaultMessage: 'The specified user account password is incorrect.',
-    id: 'firebase.error.INVALID_PASSWORD',
-  },
   'auth/network-request-failed': {
     defaultMessage: 'No internet connection.',
     id: 'firebase.error.auth/network-request-failed',
@@ -27,9 +19,17 @@ const messages = defineMessages({
     defaultMessage: 'Too many requests. Try it later, please.',
     id: 'firebase.error.auth/too-many-requests',
   },
+  'auth/user-not-found': {
+    defaultMessage: 'The specified user account does not exist.',
+    id: 'firebase.error.INVALID_USER',
+  },
   'auth/user-token-expired': {
     defaultMessage: 'Your credential has expired. Please sign in.',
     id: 'firebase.error.auth/user-token-expired',
+  },
+  'auth/wrong-password': {
+    defaultMessage: 'The specified user account password is incorrect.',
+    id: 'firebase.error.INVALID_PASSWORD',
   },
 });
 

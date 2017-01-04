@@ -4,11 +4,6 @@ import theme from '../themes/initial';
 import { StyleSheet, TextInput, View } from 'react-native';
 
 const styles = StyleSheet.create({
-  view: {
-    borderBottomColor: theme.bright(theme.placeholderTextColor),
-    borderBottomWidth: StyleSheet.hairlineWidth,
-    marginBottom: theme.fontSize * 1.5,
-  },
   input: {
     color: theme.textColor,
     fontFamily: theme.fontFamily,
@@ -17,6 +12,11 @@ const styles = StyleSheet.create({
   },
   invalid: {
     borderBottomColor: theme.brandDanger,
+  },
+  view: {
+    borderBottomColor: theme.bright(theme.placeholderTextColor),
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    marginBottom: theme.fontSize * 1.5,
   },
 });
 

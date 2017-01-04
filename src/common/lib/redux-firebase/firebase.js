@@ -18,15 +18,15 @@ const firebase = (onMount: onMount) => (WrappedComponent: Function) =>
   class Firebase extends React.Component {
 
     static contextTypes = {
-      store: React.PropTypes.object, // Redux store.
       serverFetchPromises: React.PropTypes.array,
+      store: React.PropTypes.object, // Redux store.
     };
 
     queries: Array<Query>;
 
     createAction(type) {
       const refs = this.queries.map(([ref]) => ref.toString());
-      return { type, payload: { refs } };
+      return { payload: { refs }, type };
     }
 
     componentWillMount() {

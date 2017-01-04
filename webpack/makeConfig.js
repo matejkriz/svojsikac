@@ -42,7 +42,6 @@ const makeConfig = (options) => {
   });
 
   const config = {
-    hotPort: constants.HOT_RELOAD_PORT,
     cache: isDevelopment,
     debug: isDevelopment,
     devtool: isDevelopment ? devtools : '',
@@ -54,11 +53,8 @@ const makeConfig = (options) => {
         path.join(constants.SRC_DIR, 'browser/index.js'),
       ],
     },
+    hotPort: constants.HOT_RELOAD_PORT,
     module: {
-      noParse: [
-        // https://github.com/localForage/localForage/issues/617
-        new RegExp('localforage.js'),
-      ],
       loaders: [
         {
           loader: 'url-loader?limit=10000',
@@ -70,19 +66,10 @@ const makeConfig = (options) => {
           loader: 'url-loader?limit=100000',
           test: /\.(ttf|eot|woff|woff2)(\?.*)?$/,
         }, {
-          test: /\.js$/,
           exclude: constants.NODE_MODULES_DIR,
           loader: 'babel',
           query: {
             cacheDirectory: true,
-            presets: ['es2015', 'react', 'stage-1'],
-            plugins: [
-              ['transform-runtime', {
-                helpers: false,
-                polyfill: false,
-                regenerator: false,
-              }],
-            ],
             env: {
               production: {
                 plugins: [
@@ -90,20 +77,33 @@ const makeConfig = (options) => {
                 ],
               },
             },
+            plugins: [
+              ['transform-runtime', {
+                helpers: false,
+                polyfill: false,
+                regenerator: false,
+              }],
+            ],
+            presets: ['es2015', 'react', 'stage-1'],
           },
+          test: /\.js$/,
         },
         ...stylesLoaders,
       ],
+      noParse: [
+        // https://github.com/localForage/localForage/issues/617
+        new RegExp('localforage.js'),
+      ],
     },
     output: isDevelopment ? {
-      path: constants.BUILD_DIR,
-      filename: '[name].js',
       chunkFilename: '[name]-[chunkhash].js',
+      filename: '[name].js',
+      path: constants.BUILD_DIR,
       publicPath: `http://${serverIp}:${constants.HOT_RELOAD_PORT}/build/`,
     } : {
-      path: constants.BUILD_DIR,
-      filename: '[name]-[hash].js',
       chunkFilename: '[name]-[chunkhash].js',
+      filename: '[name]-[hash].js',
+      path: constants.BUILD_DIR,
       publicPath: '/assets/',
     },
     plugins: (() => {
@@ -154,12 +154,12 @@ const makeConfig = (options) => {
     })(),
     postcss: () => [autoprefixer({ browsers: 'last 2 version' })],
     resolve: {
-      extensions: ['', '.js'], // .json is ommited to ignore ./firebase.json
-      modulesDirectories: ['src', 'node_modules'],
-      root: constants.ABSOLUTE_BASE,
       alias: {
         react$: require.resolve(path.join(constants.NODE_MODULES_DIR, 'react')),
       },
+      extensions: ['', '.js'], // .json is ommited to ignore ./firebase.json
+      modulesDirectories: ['src', 'node_modules'],
+      root: constants.ABSOLUTE_BASE,
     },
   };
 

@@ -21,12 +21,12 @@ const build = (done) => {
     }
 
     gutil.log('[webpack]', stats.toString({
+      chunkModules: false,
+      chunks: false,
       colors: true,
-      version: false,
       hash: false,
       timings: false,
-      chunks: false,
-      chunkModules: false,
+      version: false,
     }));
 
     done();
