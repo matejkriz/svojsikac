@@ -23,9 +23,9 @@ ios.debug = {
 export const android = {
   release: {
     app: 'android/app/build/outputs/apk/app-debug.apk', // FIXME
+    deviceName: 'Android Emulator',
     platformName: 'Android',
     platformVersion: '6',
-    deviceName: 'Android Emulator',
   },
 };
 

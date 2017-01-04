@@ -11,6 +11,7 @@ const runEslint = () => {
     'gulpfile.babel.js',
     'messages/*.js',
     'src/**/*.js',
+    'test/**/*.js',
     'webpack/*.js',
   ], { base: './' })
     .pipe(eslint({ fix: args.fix }))
