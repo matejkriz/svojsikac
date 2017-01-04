@@ -9,7 +9,7 @@ export const ios = {
     automationName: 'XCUITest',
     deviceName: 'iPhone 6',
     platformName: 'iOS',
-    platformVersion: '10.1',
+    platformVersion: '10.2',
   },
 };
 
@@ -23,9 +23,9 @@ ios.debug = {
 export const android = {
   release: {
     app: 'android/app/build/outputs/apk/app-debug.apk', // FIXME
+    deviceName: 'Android Emulator',
     platformName: 'Android',
     platformVersion: '6',
-    deviceName: 'Android Emulator',
   },
 };
 

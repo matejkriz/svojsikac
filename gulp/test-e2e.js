@@ -4,7 +4,7 @@ import gulp from 'gulp';
 import gutil from 'gulp-util';
 
 function log(message) {
-  gutil.log(gutil.colors.bgGreen(message));
+  gutil.log(gutil.colors.white.bgGreen(message));
 }
 
 function runMochaOnAppium(done) {
