@@ -32,7 +32,7 @@
 - `gulp messages-clear` remove unused translations
 - `npm run build-size-check` display info about latest build
 
-See [complete list of dev tasks](https://github.com/este/este#dev-tasks) on Este.
+See [complete list of dev tasks](https://github.com/este/este/tree/af909fce150201a7355a52321f555df8af7994f5#dev-tasks) on Este.
 
 ## E2E Tasks
 - `gulp test-e2e [-p] -d [ios|android|browser|i|a|b] [-s ${folderName}]` start E2E tests for selected platform, possibly in production mode
@@ -46,7 +46,7 @@ More info in separate document [E2E-TESTING.md](https://github.com/actum/devstac
 - `gulp build -p` build app for production
 - `npm test` run all checks and tests
 
-See [complete list of production tasks](https://github.com/este/este#production-tasks) on Este.
+See [complete list of production tasks](https://github.com/este/este/tree/af909fce150201a7355a52321f555df8af7994f5#production-tasks) on Este.
 
 ## Updates from devstack to your project
 
