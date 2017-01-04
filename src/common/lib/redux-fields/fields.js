@@ -89,12 +89,12 @@ const fields = (WrappedComponent, options) => {
 
       this.fields = {
         ...formFields,
-        $values: () => this.values,
-        $setValue: (field, value) => this.onFieldChange(field, value),
         $reset: () => {
           const normalizedPath = Fields.getNormalizePath(this.props);
           this.context.store.dispatch(resetFields(normalizedPath));
         },
+        $setValue: (field, value) => this.onFieldChange(field, value),
+        $values: () => this.values,
       };
     }
 

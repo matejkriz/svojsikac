@@ -7,12 +7,12 @@ const errorHandler = (err, req, res) => {
   console.error('Yay', errorDetails);
 
   res.status(500).format({
-    json() {
-      const errorInfo = {
-        details: config.isProduction ? null : errorDetails,
-        error: err.toString(),
-      };
-      res.send(errorInfo);
+    default() {
+      const message = config.isProduction
+        ? 'Something went wrong'
+        : `${errorDetails}`;
+
+      res.send(`500 Internal server error:\n${message}`);
     },
 
     html() {
@@ -23,12 +23,12 @@ const errorHandler = (err, req, res) => {
       res.send(`<h1>500 Internal server error</h1>\n${message}`);
     },
 
-    default() {
-      const message = config.isProduction
-        ? 'Something went wrong'
-        : `${errorDetails}`;
-
-      res.send(`500 Internal server error:\n${message}`);
+    json() {
+      const errorInfo = {
+        details: config.isProduction ? null : errorDetails,
+        error: err.toString(),
+      };
+      res.send(errorInfo);
     },
   });
 };

@@ -6,15 +6,15 @@ import { CenteredContainer, FormattedMessage, Link } from '../app/components';
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
+  button: {
+    fontWeight: 'bold',
+  },
   heading: {
     fontSize: theme.fontSizeH5,
     margin: theme.fontSizeH5,
   },
   paragraph: {
     margin: theme.fontSize,
-  },
-  button: {
-    fontWeight: 'bold',
   },
 });
 

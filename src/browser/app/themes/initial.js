@@ -8,31 +8,30 @@
 */
 
 const typography = {
+  bold: 600,
   // www.smashingmagazine.com/2015/11/using-system-ui-fonts-practical-guide
   fontFamily: '-apple-system, BlinkMacSystemFont, sans-serif', // minimal set
-  monospace: '"Roboto Mono", Menlo, Consolas, monospace',
   fontSizes: [48, 32, 24, 20, 16, 14, 12],
   lineHeight: 1.5,
-  bold: 600,
+  monospace: '"Roboto Mono", Menlo, Consolas, monospace',
   scale: [0, 8, 16, 32, 64], // rhythm
 };
 
 const colors = {
+  black: '#333',
+  error: '#f52',
+  gray: '#ddd',
+  info: '#08e',
   primary: '#08e',
   secondary: '#888',
-  info: '#08e',
   success: '#1c7',
   warning: '#f70',
-  error: '#f52',
-  // only grayscale
-  black: '#333',
-  gray: '#ddd',
   white: '#fff',
 };
 
 const borders = {
-  borderRadius: 2,
   borderColor: 'rgba(0, 0, 0, .25)',
+  borderRadius: 2,
 };
 
 const inverted = colors.white;
@@ -48,25 +47,25 @@ const theme = {
   colors,
   ...borders,
   inverted,
-  zIndex,
   states,
+  zIndex,
 };
 
 export const compute = (theme: Object) => ({
   ...theme,
-  link: {
-    color: theme.colors.primary,
-    bold: { fontWeight: theme.bold },
-    link: { textDecoration: 'none' },
-    hover: { textDecoration: 'underline' },
-    active: { textDecoration: 'underline' },
-  },
   Container: {
     backgroundColor: theme.colors.white,
     color: theme.colors.black, // inherited
     fontFamily: theme.fontFamily, // inherited
     fontSize: theme.fontSizes[4], // inherited
     lineHeight: theme.lineHeight, // inherited
+  },
+  link: {
+    active: { textDecoration: 'underline' },
+    bold: { fontWeight: theme.bold },
+    color: theme.colors.primary,
+    hover: { textDecoration: 'underline' },
+    link: { textDecoration: 'none' },
   },
   Toolbar: {
     marginTop: theme.scale[2],

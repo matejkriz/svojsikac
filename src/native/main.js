@@ -29,7 +29,7 @@ const createNativeInitialState = () => ({
 
 const store = configureStore({
   initialState: createNativeInitialState(),
-  platformDeps: { uuid, storageEngine: AsyncStorage },
+  platformDeps: { storageEngine: AsyncStorage, uuid },
 });
 
 const Este = () => (
