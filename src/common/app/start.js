@@ -9,9 +9,9 @@ const start = (WrappedComponent: Function) => {
   class Start extends React.Component {
 
     static propTypes = {
-      intl: React.PropTypes.object.isRequired,
       appStart: React.PropTypes.func.isRequired,
       appStop: React.PropTypes.func.isRequired,
+      intl: React.PropTypes.object.isRequired,
     };
 
     componentDidMount() {

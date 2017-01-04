@@ -5,11 +5,11 @@ import { FormattedMessage } from 'react-intl';
 import { Link, Toolbar } from '../app/components';
 
 const styles = {
-  toolbar: {
-    flexWrap: 'wrap',
-  },
   prefetch: {
     display: 'none',
+  },
+  toolbar: {
+    flexWrap: 'wrap',
   },
 };
 

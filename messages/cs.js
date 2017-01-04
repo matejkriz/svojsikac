@@ -1,4 +1,4 @@
-/* eslint-disable max-len, quote-props, quotes */
+/* eslint-disable max-len, quote-props, quotes, sort-keys */
 export default [
   {
     "id": "app.buttons.add",

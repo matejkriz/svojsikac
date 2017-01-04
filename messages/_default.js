@@ -1,4 +1,4 @@
-/* eslint-disable max-len, quote-props, quotes */
+/* eslint-disable max-len, quote-props, quotes, sort-keys */
 export default [
   {
     "id": "app.buttons.add",
@@ -97,46 +97,6 @@ export default [
     "defaultMessage": "Users",
   },
   {
-    "id": "auth.email.emailLegend",
-    "defaultMessage": "Email",
-  },
-  {
-    "id": "auth.email.emailPlaceholder",
-    "defaultMessage": "your@email.com",
-  },
-  {
-    "id": "auth.email.passwordForgotten",
-    "defaultMessage": "Forgot Your Password?",
-  },
-  {
-    "id": "auth.email.passwordPlaceholder",
-    "defaultMessage": "password",
-  },
-  {
-    "id": "auth.email.passwordRecoveryLegend",
-    "defaultMessage": "Email Password Recovery",
-  },
-  {
-    "id": "auth.email.recoveryEmailSent",
-    "defaultMessage": "Recovery email has been sent.",
-  },
-  {
-    "id": "auth.email.resetPassword",
-    "defaultMessage": "Reset Password",
-  },
-  {
-    "id": "auth.signInError.email",
-    "defaultMessage": "Email address is not valid.",
-  },
-  {
-    "id": "auth.signInError.required",
-    "defaultMessage": "Please fill out {prop, select, email {email} password {password}}.",
-  },
-  {
-    "id": "auth.signInError.simplePassword",
-    "defaultMessage": "Password must contain at least {minLength} characters.",
-  },
-  {
     "id": "auth.social.facebookSignIn",
     "defaultMessage": "Login with Facebook",
   },
@@ -171,10 +131,6 @@ export default [
   {
     "id": "footer.madeByHtml",
     "defaultMessage": "Made by Actum for Actum",
-  },
-  {
-    "id": "intl.page.unreadCount",
-    "defaultMessage": "{unreadCount, plural, one {message} other {messages}}",
   },
   {
     "id": "loading.loadingText",

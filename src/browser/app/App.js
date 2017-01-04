@@ -21,12 +21,12 @@ import NotFoundPage from '../notfound/NotFoundPage';
 const bootstrap4Metas: any = [
   { charset: 'utf-8' },
   {
-    name: 'viewport',
     content: 'width=device-width, initial-scale=1, shrink-to-fit=no',
+    name: 'viewport',
   },
   {
-    'http-equiv': 'x-ua-compatible',
     content: 'ie=edge',
+    'http-equiv': 'x-ua-compatible',
   },
 ];
 
@@ -40,9 +40,9 @@ let App = ({ currentLocale }) => (
         meta={[
           ...bootstrap4Metas,
           {
-            name: 'description',
             content: `Starter kit for universal full–fledged React apps. One stack
-              for browser, mobile, server.`,
+            for browser, mobile, server.`,
+            name: 'description',
           },
           ...favicon.meta,
         ]}

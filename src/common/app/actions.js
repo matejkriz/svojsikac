@@ -4,18 +4,18 @@ import { Observable } from 'rxjs/Observable';
 import { REHYDRATE } from 'redux-persist/constants';
 
 export const appError = (error: Object): Action => ({
-  type: 'APP_ERROR',
   payload: { error },
+  type: 'APP_ERROR',
 });
 
 export const appOnline = (online: boolean): Action => ({
-  type: 'APP_ONLINE',
   payload: { online },
+  type: 'APP_ONLINE',
 });
 
 export const appShowMenu = (menuShown: boolean): Action => ({
-  type: 'APP_SHOW_MENU',
   payload: { menuShown },
+  type: 'APP_SHOW_MENU',
 });
 
 // Called on componentDidMount aka only at the client (browser or native).
@@ -32,8 +32,8 @@ export const appStop = (): Action => ({
 });
 
 export const appStorageLoaded = (state: Object): Action => ({
-  type: 'APP_STORAGE_LOADED',
   payload: { state },
+  type: 'APP_STORAGE_LOADED',
 });
 
 // TODO: Observable type.
