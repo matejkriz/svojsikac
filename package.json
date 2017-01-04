@@ -10,6 +10,7 @@
     "jest:watch": "jest --watch",
     "postinstall": "gulp native",
     "start": "gulp",
+    "storybook": "start-storybook -p 9001 -c .storybook",
     "test": "gulp test",
     "test:e2e": "mocha test/e2e --opts ./test/e2e/mocha.opts --compilers js:babel-core/register",
     "test:server": "appium &",
@@ -26,6 +27,7 @@
     ]
   },
   "dependencies": {
+    "@kadira/storybook": "^2.35.2",
     "appium": "^1.6.1-beta",
     "autoprefixer": "^6.1.0",
     "babel-core": "^6.6.0",
