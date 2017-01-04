@@ -9,7 +9,7 @@ export const ios = {
     automationName: 'XCUITest',
     deviceName: 'iPhone 6',
     platformName: 'iOS',
-    platformVersion: '10.1',
+    platformVersion: '10.2',
   },
 };
 
