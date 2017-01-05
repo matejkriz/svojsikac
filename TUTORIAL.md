@@ -83,22 +83,22 @@ built with Webpack.
 ## E2E tests
 
 End to End tests are stored in `test/e2e/browser` and `test/e2e/native`.
-There is [dedicated page](https://github.com/actum/devstack/blob/master/E2E-TESTING.md)
+There is [dedicated page](https://github.com/actum/devstack/blob/f45d6d19e8a0fb81605a8b0fd93548d07d0bcc35/E2E-TESTING.md)
 about installation, setup and other e2e testing topics.
 
-## Browser
+### Browser
 
 ```bash
 gulp test-e2e -d browser
 ```
 
-## iOS
+### iOS
 
 ```bash
 gulp test-e2e -d ios
 ```
 
-## Android
+### Android
 
 ```bash
 gulp test-e2e -d android
