@@ -80,6 +80,10 @@ npm test
 This command runs ESLint, Jest, Flow and when there is no fail, the browser app is
 built with Webpack.
 
+## Continuous integration
+
+There is [`circle.yml`](https://github.com/actum/devstack/blob/f45d6d19e8a0fb81605a8b0fd93548d07d0bcc35/circle.yml) file with Yarn enabled, so integration with CircleCI is [very easy](https://circleci.com/integrations/github/).
+
 ## E2E tests
 
 End to End tests are stored in `test/e2e/browser` and `test/e2e/native`.
