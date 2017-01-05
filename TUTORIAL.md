@@ -17,9 +17,11 @@ cd my-app
 yarn
 ```
 
-## Install browser deps
+## Install browser or native dependencies
 
-## Install native deps
+There should be no need for manual tasks after the `yarn` command. Everything
+should be installed automatically. Of course you need to have [Android studio and Xcode ready](https://facebook.github.io/react-native/docs/getting-started.html)
+if you want to create React native app.
 
 ## Rename app
 
