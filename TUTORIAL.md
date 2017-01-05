@@ -71,9 +71,38 @@ Exit with `Ctrl+C`, wait until virtual device is booted and run `gulp android` a
 To enable live reload, open the Developer Menu by typing `Cmd+M` and select
 "Enable Live Reload".
 
-## Run tests
+## Tests
 
-## Run native e2e tests
+```bash
+npm test
+```
+
+This command runs ESLint, Jest, Flow and when there is no fail, the browser app is
+built with Webpack.
+
+## E2E tests
+
+End to End tests are stored in `test/e2e/browser` and `test/e2e/native`.
+There is [dedicated page](https://github.com/actum/devstack/blob/master/E2E-TESTING.md)
+about installation, setup and other e2e testing topics.
+
+## Browser
+
+```bash
+gulp test-e2e -d browser
+```
+
+## iOS
+
+```bash
+gulp test-e2e -d ios
+```
+
+## Android
+
+```bash
+gulp test-e2e -d android
+```
 
 ## Build browser app
 
