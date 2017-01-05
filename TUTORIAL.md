@@ -110,6 +110,13 @@ gulp test-e2e -d android
 
 ## Build browser app
 
+```bash
+npm run build -p
+```
+
+JS, CSS and source map files will be stored in `build` directory. If you are
+curious what's included in the bundle, run `npm run build-size-check`
+
 ## Build iOS app
 
 ## Build Android app
