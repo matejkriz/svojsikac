@@ -127,3 +127,5 @@ xcodebuild archive -scheme Release -project MyApp.xcodeproj -configuration Relas
 ```
 
 ## Build Android app
+
+Take a look at [Generating Signed APK](https://facebook.github.io/react-native/docs/signed-apk-android.html) on React Native web.
