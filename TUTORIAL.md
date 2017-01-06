@@ -23,6 +23,21 @@ There should be no need for manual tasks after the `yarn` command. Everything
 should be installed automatically. Of course you need to have [Android studio and Xcode ready](https://facebook.github.io/react-native/docs/getting-started.html)
 if you want to create React native app.
 
+## Architecture overview
+
+The goal of this Devstack is to be universal stack for development of React apps
+for browser, mobile and server. This means there are some abstractions in the code and
+it's not always clear where to look when you are doing something for the first time.
+
+All the source code of your app is in `src` folder. There four sub folders:
+ - `browser` - browser specific code. UI components, routes and some wiring in `index.js`, `main.js`, `app/App.js` and `Root.js`.
+ - `common` - configuration and shared business logic. All the code that can be shared across platforms (reducers, actions...) and global configuration is here.
+ - `native` - mobile app code. Same as `browser`, only UI components and wiring should be here if you are developing for more platforms.
+ - `server` - backend part, by default server side rendering of browser app. It's implemented with Express, add new routes into `frontend/index.js` when needed.
+
+It's absolutely OK to have code only in `native` folder when you are doing
+just a React Native mobile app.
+
 ## Rename app
 
 ## Run dev mode browser / iOS / Android
