@@ -25,6 +25,37 @@ if you want to create React native app.
 
 ## Rename app
 
+Close the XCode project before renaming the app!
+
+Tool `react-native-rename` could do the major part of the work:
+
+```bash
+yarn global add react-native-rename
+
+react-native-rename "Awesome App"
+```
+
+Save the new name with spaces removed to variable `new_name`:
+
+```bash
+new_name=AwesomeApp
+```
+
+Rename ios entitlements file:
+
+```bash
+mv ./ios/${new_name}/Este.entitlements ./ios/${new_name}/${new_name}.entitlements
+```
+
+Then you need to replace Este in schemes, AppRegistry component, links for e2e testing and entitlements:
+
+```bash
+ sed -i -e 's/Este/'${new_name}'/g' ./ios/${new_name}.xcodeproj/xcshareddata/xcschemes/Debug.xcscheme ./ios/${new_name}.xcodeproj/xcshareddata/xcschemes/Release.xcscheme ./src/native/main.js ./test/e2e/helpers/caps.js ./ios/${new_name}/${new_name}.entitlements
+```
+
+Test all environments (`gulp, gulp ios and gulp android`), review and then commit changes.
+
+
 ## Run dev mode browser / iOS / Android
 
 There is gulp command ready for every platform
