@@ -119,4 +119,11 @@ curious what's included in the bundle, run `npm run build-size-check`
 
 ## Build iOS app
 
+Once you have Signing set in Xcode (Project > General > Signing) you can build
+the app from command line. Manage builds in Window > Organizer > Archives
+
+```bash
+xcodebuild archive -scheme Release -project MyApp.xcodeproj -configuration Relase
+```
+
 ## Build Android app
