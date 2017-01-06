@@ -68,8 +68,7 @@ Then you need to replace Este in schemes, AppRegistry component, links for e2e t
  sed -i -e 's/Este/'${new_name}'/g' ./ios/${new_name}.xcodeproj/xcshareddata/xcschemes/Debug.xcscheme ./ios/${new_name}.xcodeproj/xcshareddata/xcschemes/Release.xcscheme ./src/native/main.js ./test/e2e/helpers/caps.js ./ios/${new_name}/${new_name}.entitlements
 ```
 
-Test all environments (`gulp, gulp ios and gulp android`), review and then commit changes.
-
+Test all environments (`gulp`, `gulp ios` and `gulp android`), review and then commit changes.
 
 ## Run dev mode browser / iOS / Android
 
