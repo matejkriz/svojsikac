@@ -1,4 +1,4 @@
-/* @flow */
+// @flow
 import React from 'react';
 import { Footer } from '../app/components';
 import { FormattedMessage, defineMessages } from 'react-intl';

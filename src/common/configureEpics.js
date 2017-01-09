@@ -1,4 +1,4 @@
-/* @flow weak */
+// @flow weak
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/filter';

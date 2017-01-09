@@ -1,4 +1,4 @@
-/* @flow weak */
+// @flow weak
 import * as actions from './actions';
 import R from 'ramda';
 

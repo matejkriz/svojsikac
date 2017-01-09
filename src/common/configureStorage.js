@@ -1,4 +1,4 @@
-/* @flow weak */
+// @flow weak
 import R from 'ramda';
 import { createTransform } from 'redux-persist';
 
