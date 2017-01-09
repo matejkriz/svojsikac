@@ -12,15 +12,8 @@ const resetStateOnSignOutReducer = (reducer, initialState) => (
   state: State,
   action: Action,
 ) => {
-  const userWasSignedOut =
-    action.type === 'ON_AUTH' &&
-    state.users.viewer &&
-    !action.payload.firebaseUser;
-  if (!userWasSignedOut) {
-    return reducer(state, action);
-  }
   // Purge sensitive data, preserve only app and safe initial state.
-  return reducer({
+  reducer({
     app: state.app,
     config: initialState.config,
     device: initialState.device,

@@ -5,10 +5,8 @@ import { pick } from 'ramda';
 // TODO: Add redux-persist-migrate.
 
 const paths = [
-  ['app', ['baselineShown', 'currentTheme']],
   ['fields'],
   ['intl', ['currentLocale']],
-  ['users', ['online', 'viewer']],
 ];
 
 const transforms = [];
