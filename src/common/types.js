@@ -1,4 +1,4 @@
-/* @flow */
+// @flow
 
 // Algebraic types are composable, so it makes sense to have them at one place.
 
