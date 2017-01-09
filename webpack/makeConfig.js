@@ -34,7 +34,10 @@ const makeConfig = (options) => {
     const extLoaders = prefix + loaders[ext];
     const loader = isDevelopment
       ? `style-loader!${extLoaders}`
-      : ExtractTextPlugin.extract('style-loader', extLoaders);
+      : ExtractTextPlugin.extract({
+        fallbackLoader: 'style-loader',
+        loader: extLoaders,
+      });
     return {
       loader,
       test: new RegExp(`\\.(${ext})$`),
@@ -43,7 +46,6 @@ const makeConfig = (options) => {
 
   const config = {
     cache: isDevelopment,
-    debug: isDevelopment,
     devtool: isDevelopment ? devtools : '',
     entry: {
       app: isDevelopment ? [
@@ -53,22 +55,34 @@ const makeConfig = (options) => {
         path.join(constants.SRC_DIR, 'browser/index.js'),
       ],
     },
-    hotPort: constants.HOT_RELOAD_PORT,
     module: {
-      loaders: [
+      noParse: [
+        // https://github.com/localForage/localForage/issues/617
+        new RegExp('localforage.js'),
+      ],
+      rules: [
         {
-          loader: 'url-loader?limit=10000',
+          loader: 'url-loader',
+          options: {
+            limit: 10000,
+          },
           test: /\.(gif|jpg|png|svg)(\?.*)?$/,
         }, {
-          loader: 'url-loader?limit=1',
+          loader: 'url-loader',
+          options: {
+            limit: 1,
+          },
           test: /favicon\.ico$/,
         }, {
-          loader: 'url-loader?limit=100000',
+          loader: 'url-loader',
+          options: {
+            limit: 100000,
+          },
           test: /\.(ttf|eot|woff|woff2)(\?.*)?$/,
         }, {
           exclude: constants.NODE_MODULES_DIR,
-          loader: 'babel',
-          query: {
+          loader: 'babel-loader',
+          options: {
             cacheDirectory: true,
             env: {
               production: {
@@ -84,15 +98,11 @@ const makeConfig = (options) => {
                 regenerator: false,
               }],
             ],
-            presets: ['es2015', 'react', 'stage-1'],
+            presets: [['es2015', { modules: false }], 'react', 'stage-1'],
           },
           test: /\.js$/,
         },
         ...stylesLoaders,
-      ],
-      noParse: [
-        // https://github.com/localForage/localForage/issues/617
-        new RegExp('localforage.js'),
       ],
     },
     output: isDevelopment ? {
@@ -106,8 +116,22 @@ const makeConfig = (options) => {
       path: constants.BUILD_DIR,
       publicPath: '/assets/',
     },
+    performance: {
+      hints: false,
+      // TODO: Reenable it once Webpack 2 will complete dead code removing.
+      // hints: process.env.NODE_ENV === 'production' ? 'warning' : false,
+    },
     plugins: (() => {
       const plugins = [
+        new webpack.LoaderOptionsPlugin({
+          debug: isDevelopment,
+          hotPort: constants.HOT_RELOAD_PORT,
+          minimize: !isDevelopment,
+          // Webpack 2 no longer allows custom properties in configuration.
+          // Loaders should be updated to allow passing options via loader options in module.rules.
+          // Alternatively, LoaderOptionsPlugin can be used to pass options to loaders
+          postcss: () => [autoprefixer({ browsers: 'last 2 version' })],
+        }),
         new webpack.DefinePlugin({
           'process.env': {
             IS_BROWSER: true, // Because webpack is used only for browser code.
@@ -118,7 +142,6 @@ const makeConfig = (options) => {
       ];
       if (isDevelopment) {
         plugins.push(
-          new webpack.optimize.OccurrenceOrderPlugin(),
           new webpack.HotModuleReplacementPlugin(),
           new webpack.NoErrorsPlugin(),
           webpackIsomorphicToolsPlugin.development(),
@@ -127,16 +150,17 @@ const makeConfig = (options) => {
         plugins.push(
           // Render styles into separate cacheable file to prevent FOUC and
           // optimize for critical rendering path.
-          new ExtractTextPlugin('app-[hash].css', {
+          new ExtractTextPlugin({
             allChunks: true,
+            disable: false,
+            filename: 'app-[hash].css',
           }),
-          new webpack.optimize.DedupePlugin(),
-          new webpack.optimize.OccurrenceOrderPlugin(),
           new webpack.optimize.UglifyJsPlugin({
             compress: {
               screw_ie8: true, // eslint-disable-line camelcase
               warnings: false, // Because uglify reports irrelevant warnings.
             },
+            sourceMap: true,
           }),
           new webpack.SourceMapDevToolPlugin({
             filename: '[file].map',
@@ -152,14 +176,12 @@ const makeConfig = (options) => {
       }
       return plugins;
     })(),
-    postcss: () => [autoprefixer({ browsers: 'last 2 version' })],
     resolve: {
       alias: {
         react$: require.resolve(path.join(constants.NODE_MODULES_DIR, 'react')),
       },
-      extensions: ['', '.js'], // .json is ommited to ignore ./firebase.json
-      modulesDirectories: ['src', 'node_modules'],
-      root: constants.ABSOLUTE_BASE,
+      extensions: ['.js'], // .json is ommited to ignore ./firebase.json
+      modules: [constants.SRC_DIR, 'node_modules'],
     },
   };
 
