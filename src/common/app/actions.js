@@ -36,6 +36,7 @@ export const appStorageLoaded = (state: Object): Action => ({
   type: 'APP_STORAGE_LOADED',
 });
 
+// TODO: Observable type.
 const appStartEpic = (action$: any) =>
   action$.ofType(REHYDRATE)
     .map(appStarted);

@@ -1,19 +1,25 @@
 // @flow
 import React from 'react';
 import {
+  Box,
+  Link,
   PageHeader,
   Title,
-  View,
 } from '../app/components';
 
 const HomePage = () => (
-  <View>
-    <Title message="Actum app" />
+  <Box>
+    <Title message="Actum" />
     <PageHeader
-      description="Actum starter"
       heading="Actum"
+      description="Actum Starter kit for universal full–fledged React apps.
+      One stack for browser, mobile, server. Based on Este."
     />
-  </View>
+    <Link
+      display="block"
+      to="https://github.com/este/este"
+    >github.com/este/este</Link>
+  </Box>
 );
 
 export default HomePage;

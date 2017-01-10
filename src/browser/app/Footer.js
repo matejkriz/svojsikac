@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { Footer } from '../app/components';
+import { Box, Text } from './components';
 import { FormattedMessage, defineMessages } from 'react-intl';
 
 const messages = defineMessages({
@@ -10,10 +10,16 @@ const messages = defineMessages({
   },
 });
 
-const AppFooter = () => (
-  <Footer>
-    <FormattedMessage {...messages.madeByHtml} />
-  </Footer>
+const Footer = () => (
+  <Box
+    border="top"
+    marginTop={1}
+    paddingVertical={1}
+  >
+    <Text size={-1}>
+      <FormattedMessage {...messages.madeByHtml} />
+    </Text>
+  </Box>
 );
 
-export default AppFooter;
+export default Footer;
