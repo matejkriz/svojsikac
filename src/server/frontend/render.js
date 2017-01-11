@@ -5,11 +5,9 @@ import Html from './Html';
 import React from 'react';
 import ServerFetchProvider from './ServerFetchProvider';
 import config from '../config';
-import configureFela from '../../common/configureFela';
 import configureStore from '../../common/configureStore';
 import createInitialState from './createInitialState';
 import serialize from 'serialize-javascript';
-import { Provider as Fela } from 'react-fela';
 import { Provider as Redux } from 'react-redux';
 import { createServerRenderContext, ServerRouter } from 'react-router';
 import { renderToStaticMarkup, renderToString } from 'react-dom/server';
@@ -57,21 +55,17 @@ const createStore = req => configureStore({
 });
 
 const renderBody = (store, context, location, fetchPromises) => {
-  const felaRenderer = configureFela();
   const html = renderToString(
     <Redux store={store}>
-      <Fela renderer={felaRenderer}>
-        <ServerFetchProvider promises={fetchPromises}>
-          <ServerRouter context={context} location={location}>
-            <App />
-          </ServerRouter>
-        </ServerFetchProvider>
-      </Fela>
+      <ServerFetchProvider promises={fetchPromises}>
+        <ServerRouter context={context} location={location}>
+          <App />
+        </ServerRouter>
+      </ServerFetchProvider>
     </Redux>,
   );
   const helmet = Helmet.rewind();
-  const css = felaRenderer.renderToString();
-  return { css, helmet, html };
+  return { helmet, html };
 };
 
 const renderScripts = (state, appJsFilename) =>
@@ -96,7 +90,6 @@ const renderHtml = (state, body) => {
   const html = renderToStaticMarkup(
     <Html
       appCssFilename={appCssFilename}
-      bodyCss={body.css}
       bodyHtml={`<div id="app">${body.html}</div>${scripts}`}
       googleAnalyticsId={config.googleAnalyticsId}
       helmet={body.helmet}
