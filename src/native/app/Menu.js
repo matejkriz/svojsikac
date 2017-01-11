@@ -57,8 +57,4 @@ const Menu = () => (
   </ScrollView>
 );
 
-Menu.propTypes = {
-  viewer: React.PropTypes.object,
-};
-
 export default Menu;
