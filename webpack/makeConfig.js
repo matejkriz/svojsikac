@@ -132,9 +132,9 @@ const makeConfig = (options) => {
           // Alternatively, LoaderOptionsPlugin can be used to pass options to loaders
           options: {
             postcss: {
-              plugins: [autoprefixer({ browsers: 'last 2 version' })]
-            }
-          }
+              plugins: [autoprefixer({ browsers: 'last 2 version' })],
+            },
+          },
         }),
         new webpack.DefinePlugin({
           'process.env': {
