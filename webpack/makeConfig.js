@@ -130,7 +130,11 @@ const makeConfig = (options) => {
           // Webpack 2 no longer allows custom properties in configuration.
           // Loaders should be updated to allow passing options via loader options in module.rules.
           // Alternatively, LoaderOptionsPlugin can be used to pass options to loaders
-          postcss: () => [autoprefixer({ browsers: 'last 2 version' })],
+          options: {
+            postcss: {
+              plugins: [autoprefixer({ browsers: 'last 2 version' })]
+            }
+          }
         }),
         new webpack.DefinePlugin({
           'process.env': {
