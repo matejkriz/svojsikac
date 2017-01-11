@@ -1,4 +1,4 @@
-/* @flow */
+// @flow
 // www.andrewsouthpaw.com/2015/02/08/environment-variables/
 import nconf from 'nconf';
 
@@ -31,7 +31,7 @@ nconf.defaults({
   // because it depends on ip.address(), which doesn't work with disabled wifi.
   // How do we access a website running on localhost from mobile browser?
   // stackoverflow.com/questions/3132105
-  remoteHotReload: false,
+  remoteHotReload: true,
   sentryUrl: 'https://f297cec9c9654088b8ccf1ea9136c458@app.getsentry.com/77415',
 });
 

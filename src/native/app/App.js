@@ -1,4 +1,4 @@
-/* @flow */
+// @flow
 import type { State } from '../../common/types';
 import Menu from './Menu';
 import Page from './Page';
@@ -9,12 +9,13 @@ import { Container } from './components';
 import { Match, Redirect } from 'react-router';
 import { Platform, StatusBar } from 'react-native';
 import { appShowMenu } from '../../common/app/actions';
+import { compose } from 'ramda';
 import { connect } from 'react-redux';
 
 // Pages
 import HomePage from '../home/HomePage';
 
-let App = ({ appMenuShown, appShowMenu, appStarted }) => {
+const App = ({ appMenuShown, appShowMenu, appStarted }) => {
   // TODO: Add splash screen.
   if (!appStarted) return null;
   return (
@@ -51,12 +52,13 @@ App.propTypes = {
   appStarted: React.PropTypes.bool.isRequired,
 };
 
-App = connect(
-  (state: State) => ({
-    appMenuShown: state.app.menuShown,
-    appStarted: state.app.started,
-  }),
-  { appShowMenu },
+export default compose(
+  start,
+  connect(
+    (state: State) => ({
+      appMenuShown: state.app.menuShown,
+      appStarted: state.app.started,
+    }),
+    { appShowMenu },
+  ),
 )(App);
-
-export default start(App);

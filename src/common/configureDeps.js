@@ -1,4 +1,4 @@
-/* @flow weak */
+// @flow weak
 
 import Firebase from 'firebase/app';
 import 'firebase/database';

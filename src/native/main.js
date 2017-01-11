@@ -1,4 +1,4 @@
-/* @flow */
+// @flow
 import React from 'react';
 import ReactNativeI18n from 'react-native-i18n';
 import Root from './app/Root';

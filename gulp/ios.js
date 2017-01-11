@@ -6,5 +6,6 @@ import gulp from 'gulp';
 // 1) delete ios/build directory
 // 2) reset content and settings in iOS simulator
 gulp.task('ios', ['native'], bg(
-  'react-native', 'run-ios', '--scheme', args.production ? 'Release' : 'Debug',
+  'node', 'node_modules/react-native/local-cli/cli.js',
+  'run-ios', '--scheme', args.production ? 'Release' : 'Debug',
 ));
