@@ -14,6 +14,8 @@ import start from '../../common/app/start';
 import type { State } from '../../common/types';
 import Header from '../app/Header';
 import Footer from '../app/Footer';
+import Container from '../app/components/Container';
+import View from '../app/components/View';
 
 type AppProps = {
   currentLocale: string,
@@ -22,7 +24,7 @@ type AppProps = {
 const App = ({
   currentLocale,
 }: AppProps) => (
-    <div>
+    <Container>
       <Helmet
         htmlAttributes={{ lang: currentLocale }}
         meta={[
@@ -37,13 +39,13 @@ const App = ({
         ]}
       />
       <Header />
-      <div>
-          <Match exactly pattern="/" component={HomePage} />
-          <Match pattern="/info" component={InfoPage} />
-          <Miss component={NotFoundPage} />
-      </div>
+      <View>
+        <Match exactly pattern="/" component={HomePage} />
+        <Match pattern="/info" component={InfoPage} />
+        <Miss component={NotFoundPage} />
+      </View>
       <Footer />
-    </div>
+    </Container>
 );
 
 export default compose(
