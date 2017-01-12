@@ -1,12 +1,19 @@
 // @flow
-import type { State } from '../../common/types';
 import './App.css';
-import Helmet from 'react-helmet';
-import React from 'react';
-import favicon from '../../common/app/favicon';
-import start from '../../common/app/start';
 import { compose } from 'ramda';
 import { connect } from 'react-redux';
+import { Miss } from 'react-router';
+import favicon from '../../common/app/favicon';
+import Helmet from 'react-helmet';
+import HomePage from '../homePage/HomePage';
+import InfoPage from '../infoPage/InfoPage';
+import NotFoundPage from '../notFoundPage/NotFoundPage';
+import Match from '../../common/app/components/Match';
+import React from 'react';
+import start from '../../common/app/start';
+import type { State } from '../../common/types';
+import Header from '../app/Header';
+import Footer from '../app/Footer';
 
 type AppProps = {
   currentLocale: string,
@@ -29,7 +36,13 @@ const App = ({
           ...favicon.link,
         ]}
       />
-      REMOVE FELA from Actum devstack
+      <Header />
+      <div>
+          <Match exactly pattern="/" component={HomePage} />
+          <Match pattern="/info" component={InfoPage} />
+          <Miss component={NotFoundPage} />
+      </div>
+      <Footer />
     </div>
 );
 
