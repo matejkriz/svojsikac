@@ -15,6 +15,7 @@ const styles = {
   },
   message: {
     color: '#908483',
+    textTransform: 'uppercase',
   },
 };
 
@@ -22,7 +23,7 @@ const HomePage = () => (
   <div style={styles.container}>
     <Title message="ACTUM DEVSTACK" />
     <span style={styles.message}>
-      WELLCOME TO ACTUM DEVSTACK
+      Wellcome to actum devstack
     </span>
     <p style={styles.description}>
       ( Starter kit for universal full–fledged React apps.
