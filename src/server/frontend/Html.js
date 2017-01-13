@@ -20,7 +20,6 @@ GoogleAnalytics.propTypes = {
 
 type Props = {
   appCssFilename: string,
-  bodyCss: string,
   bodyHtml: string,
   googleAnalyticsId: string,
   helmet: Object,
@@ -29,7 +28,6 @@ type Props = {
 
 const Html = ({
   appCssFilename,
-  bodyCss,
   bodyHtml,
   googleAnalyticsId,
   helmet,
@@ -48,7 +46,6 @@ const Html = ({
       {isProduction && googleAnalyticsId !== 'UA-XXXXXXX-X' &&
         <GoogleAnalytics id={googleAnalyticsId} />
       }
-      <style dangerouslySetInnerHTML={{ __html: bodyCss }} id="stylesheet" />
     </head>
     <body dangerouslySetInnerHTML={{ __html: bodyHtml }} />
   </html>

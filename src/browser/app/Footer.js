@@ -1,25 +1,19 @@
 // @flow
 import React from 'react';
-import { Box, Text } from './components';
-import { FormattedMessage, defineMessages } from 'react-intl';
 
-const messages = defineMessages({
-  madeByHtml: {
-    defaultMessage: 'Made by Actum for Actum',
-    id: 'footer.madeByHtml',
+const styles = {
+  footer: {
+    backgroundColor: '#000',
+    color: '#fff',
+    display: 'flex',
+    padding: '1em',
   },
-});
+};
 
 const Footer = () => (
-  <Box
-    border="top"
-    marginTop={1}
-    paddingVertical={1}
-  >
-    <Text size={-1}>
-      <FormattedMessage {...messages.madeByHtml} />
-    </Text>
-  </Box>
+  <div style={styles.footer}>
+    Footer
+  </div>
 );
 
 export default Footer;

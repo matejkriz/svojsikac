@@ -1,14 +1,27 @@
 // @flow
-import styled from './styled';
+import React from 'react';
 
-const Container = styled(theme => ({
-  display: 'flex',
-  flexDirection: 'column',
-  margin: 'auto',
-  maxWidth: theme.container.maxWidths.big,
-  minHeight: '100vh', // make footer sticky
-  paddingLeft: theme.typography.rhythm(1),
-  paddingRight: theme.typography.rhythm(1),
-}));
+const styles = {
+  container: {
+    display: 'flex',
+    flexDirection: 'column',
+    fontFamily: 'Arial',
+    minHeight: '100vh', // make footer sticky
+  },
+};
+
+type ContainerProps = {|
+  props?: Object,
+  children?: any,
+  |};
+
+const Container = ({ children, ...props }: ContainerProps) => (
+  <div
+    {...props}
+    style={styles.container}
+  >
+    {children}
+  </div>
+);
 
 export default Container;

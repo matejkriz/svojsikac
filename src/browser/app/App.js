@@ -1,42 +1,29 @@
 // @flow
-import type { State } from '../../common/types';
-import type { Theme } from './themes/types';
-import * as themes from './themes';
-import Footer from './Footer';
-import Header from './Header';
-import Helmet from 'react-helmet';
-import React from 'react';
-import favicon from '../../common/app/favicon';
-import start from '../../common/app/start';
-import { Match } from '../../common/app/components';
-import { Miss } from 'react-router';
+import './App.css';
 import { compose } from 'ramda';
 import { connect } from 'react-redux';
-import {
-  Box,
-  Container,
-  ThemeProvider,
-} from './components';
-
-// Pages
-import HomePage from '../home/HomePage';
-import NotFoundPage from '../notfound/NotFoundPage';
+import { Miss } from 'react-router';
+import favicon from '../../common/app/favicon';
+import Helmet from 'react-helmet';
+import HomePage from '../homePage/HomePage';
+import InfoPage from '../infoPage/InfoPage';
+import NotFoundPage from '../notFoundPage/NotFoundPage';
+import Match from '../../common/app/components/Match';
+import React from 'react';
+import start from '../../common/app/start';
+import type { State } from '../../common/types';
+import Header from '../app/Header';
+import Footer from '../app/Footer';
+import Container from '../app/components/Container';
+import View from '../app/components/View';
 
 type AppProps = {
   currentLocale: string,
-  themeName: string,
-  theme: Theme,
 };
 
 const App = ({
   currentLocale,
-  theme,
-  themeName,
 }: AppProps) => (
-  <ThemeProvider
-    key={themeName} // Enforce rerender.
-    theme={theme}
-  >
     <Container>
       <Helmet
         htmlAttributes={{ lang: currentLocale }}
@@ -52,23 +39,19 @@ const App = ({
         ]}
       />
       <Header />
-      <Box
-        flex={1} // make footer sticky
-      >
+      <View>
         <Match exactly pattern="/" component={HomePage} />
+        <Match pattern="/info" component={InfoPage} />
         <Miss component={NotFoundPage} />
-      </Box>
+      </View>
       <Footer />
     </Container>
-  </ThemeProvider>
 );
 
 export default compose(
   connect(
     (state: State) => ({
       currentLocale: state.intl.currentLocale,
-      theme: themes.defaultTheme,
-      themeName: themes.defaultTheme,
     }),
   ),
   start,

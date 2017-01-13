@@ -3,7 +3,7 @@ import Header from './Header';
 import React from 'react';
 import linksMessages from '../../common/app/linksMessages';
 import { Alert, Container } from './components';
-import { Match } from '../../common/app/components';
+import Match from '../../common/app/components/Match';
 import { injectIntl, intlShape } from 'react-intl';
 
 const titles = {

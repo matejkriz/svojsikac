@@ -1,33 +1,42 @@
 // @flow
 import React from 'react';
-import linksMessages from '../../common/app/linksMessages';
-import { Box, Link } from '../app/components';
-import { FormattedMessage } from 'react-intl';
+import NavigationLink from '../app/components/NavigationLink';
 
-const HeaderLink = ({ exactly, to, message }) => (
-  <Link
-    backgroundColor="primary"
-    bold
-    color="white"
-    exactly={exactly}
-    paddingHorizontal={0.5}
-    paddingVertical={0.5}
-    to={to}
-  >
-    <FormattedMessage {...message} />
-  </Link>
-);
+const styles = {
+  container: {
+    alignItems: 'center',
+    backgroundColor: '#ed3d25',
+    color: 'white',
+    display: 'flex',
+    flexDirection: 'column',
+    padding: '1em',
+  },
+  description: {
+    fontSize: '0.7em',
+  },
+  logo: {
+    fontFamily: 'Arial',
+    fontSize: '1.5em',
+  },
+  navigation: {
+    display: 'flex',
+    width: '100%',
+  },
+};
 
 const Header = () => (
-  <Box
-    backgroundColor="primary"
-    display="flex"
-    flexWrap="wrap"
-    marginVertical={0.5}
-    paddingHorizontal={0.5}
-  >
-    <HeaderLink exactly to="/" message={linksMessages.home} />
-  </Box>
+  <header style={styles.container}>
+    <div>
+      <span style={styles.logo}>ACTUM DEVSTACK </span>
+      <span style={styles.description}>
+        (based on <a title="Este on github" href="https://github.com/este">Este</a>)
+      </span>
+    </div>
+    <navigation style={styles.navigation}>
+      <NavigationLink exactly to="/">Home</NavigationLink>
+      <NavigationLink exactly to="/info">Info</NavigationLink>
+    </navigation>
+  </header>
 );
 
 export default Header;

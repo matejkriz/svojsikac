@@ -1,69 +1,34 @@
 // @flow
-import type { Strict, Styled } from '../themes/types';
-import type { TextProps } from './Text';
-import Text from './Text';
-import color from 'color';
-import styled from './styled';
+import React from 'react';
 
-type ButtonProps = TextProps & {
-  active?: boolean,
-  disabled?: boolean,
-  inline?: boolean,
-  noOutline?: boolean,
+const buttonStyles = {
+  backgroundColor: '#FFFFFF',
+  border: '1px solid rgb(236, 199, 199)',
+  borderRadius: 3,
+  cursor: 'pointer',
+  fontSize: 15,
+  padding: '3px 10px',
+};
+
+type ButtonProps = {|
+  style?: Object,
+  children?: any,
   onClick?: (e: SyntheticMouseEvent) => any,
+  |};
+
+const Button = ({ children, onClick, style = {} }: ButtonProps) => (
+  <button
+    style={{ ...buttonStyles, ...style }}
+    onClick={onClick}
+  >
+    {children}
+  </button>
+);
+
+Button.propTypes = {
+  children: React.PropTypes.string.isRequired,
+  onClick: React.PropTypes.func,
+  style: React.PropTypes.object,
 };
-
-const maybeVerticalSpace = size => size >= 0 ? {
-  // Button needs vertical space. Sure it can be defined in the theme.
-  marginVertical: 0.25,
-  paddingVertical: 0.25,
-} : {
-  // But the smaller button can't have any padding nor border because it would
-  // break a rhythm. It's impossible to compute it since text can be multiline.
-  borderWidth: 0,
-};
-
-const activeStyle = (style, { darken }) => [
-  'backgroundColor',
-  'borderColor',
-].reduce((activeStyle, prop) => {
-  const value = activeStyle[prop];
-  if (!value) return activeStyle;
-  return {
-    ...activeStyle,
-    [prop]: color(value).darken(darken).hsl().string(),
-  };
-}, style);
-
-const Button: Styled<ButtonProps> = styled((theme, {
-  active,
-  bold = true,
-  disabled,
-  display = 'inline-block',
-  inline,
-  noOutline = false,
-  paddingHorizontal = 0.8,
-  size = 0,
-  transform = 'capitalize',
-}) => ({
-  $extends: [Text, ({
-    bold,
-    display,
-    paddingHorizontal,
-    transform,
-    ...(inline ? {} : maybeVerticalSpace(size)),
-  }: Strict<TextProps>)],
-  $map: style => {
-    if (!active) return style;
-    return activeStyle(style, theme.states.active);
-  },
-  pointerEvents: disabled ? 'none' : 'auto', // Ignore events when disabled.
-  userSelect: 'none', // Because button is rendered as a div in the browser.
-  ...(disabled ? theme.states.disabled : null),
-  ...(noOutline ? { outline: 'none' } : null),
-}), 'button', [
-  'disabled',
-  'onClick',
-]);
 
 export default Button;
