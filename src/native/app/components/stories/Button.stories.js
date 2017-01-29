@@ -9,11 +9,11 @@ const styles = {
   button: {
     borderColor: '#ed3d25',
     borderWidth: 2,
-    fontWeight: 'bold',
     padding: 10,
   },
   text: {
     color: '#ed3d25',
+    fontWeight: 'bold',
   },
 };
 
