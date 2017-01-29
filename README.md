@@ -41,6 +41,18 @@ See [complete list of dev tasks](https://github.com/este/este/tree/af909fce15020
 
 More info in separate document [E2E-TESTING.md](https://github.com/actum/devstack/blob/master/E2E-TESTING.md)
 
+## [Storybook](https://github.com/storybooks/react-storybook)
+- `npm run storybook-web` run Storybook for Web
+- point your browser to [localhost:9001](http://localhost:9001)
+
+- `npm run storybook-native` run Storybook for native
+- to the opportunity to show react-native components in browser we use the library [react-native-web] (https://github.com/necolas/react-native-web) 
+- point your browser to [localhost:9002](http://localhost:9001)
+
+- [create stories](https://getstorybook.io/docs/react-storybook/basics/writing-stories) alongside components (eg. `Button.stories.js` for `Button.js`)
+- Storybook watches `/src/browser` directory for web app and `/src/native` for native app, and rebuilds itself as you touch any `*.stories.js`
+
+
 ## Production Tasks
 
 - `gulp build -p` build app for production
