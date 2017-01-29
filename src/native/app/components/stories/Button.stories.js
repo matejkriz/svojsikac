@@ -19,7 +19,7 @@ const styles = {
 
 storiesOf('Button', module)
   .add('Simple Button', () => (
-        <Button style={styles.button} onPress={onButtonPress}>
-          <Text style={styles.text}>Press the Button</Text>
-        </Button>
+    <Button style={styles.button} onPress={onButtonPress}>
+      <Text style={styles.text}>Press the Button</Text>
+    </Button>
   ));
