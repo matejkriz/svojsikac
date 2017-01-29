@@ -25,6 +25,12 @@
 ; I don't know why, but clean RN is ok ofc, but in Este this file fails.
 .*/node_modules/react-native/local-cli/server/util/inspectorProxy.js
 
+; Actum devstack Ignore
+; Ignore duplicate react-native-web
+; Ignore react-native-web animated dependency
+.*/node_modules/animated/.*
+.*/node_modules/react-native-web/.*
+
 [include]
 
 [libs]
