@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf, linkTo } from '@kadira/storybook';
-import Button from './Button';
+import Button from '../Button';
 
 storiesOf('Button', module)
   .add('link button', () => (
@@ -11,11 +11,13 @@ storiesOf('Button', module)
   ))
   .add('custom styles', () => {
     const style = {
-      color: '#FF8833',
+      borderColor: '#ed3d25',
+      borderWidth: '2px',
+      color: '#ed3d25',
       fontSize: 20,
       textTransform: 'uppercase',
     };
     return (
-      <Button style={style}>Hello</Button>
+      <Button style={style}>Button</Button>
     );
   });
