@@ -53,10 +53,6 @@ export default [
     "defaultMessage": "Máte neuložené změny. Jste si jistý?",
   },
   {
-    "id": "app.FieldError.required",
-    "defaultMessage": "{prop, select,\n      description {Prosím zadejte popis.}\n      email {Prosím zadejte email.}\n      name {Prosím zadejte jméno.}\n      password {Prosím zadejte heslo.}\n      other {Prosím vyplnit.}\n    }",
-  },
-  {
     "id": "app.links.fields",
     "defaultMessage": "Fields",
   },
@@ -101,46 +97,6 @@ export default [
     "defaultMessage": "Uživatelé",
   },
   {
-    "id": "auth.email.emailLegend",
-    "defaultMessage": "Email",
-  },
-  {
-    "id": "auth.email.emailPlaceholder",
-    "defaultMessage": "tvuj@email.com",
-  },
-  {
-    "id": "auth.email.passwordForgotten",
-    "defaultMessage": "Zapomenuté heslo",
-  },
-  {
-    "id": "auth.email.passwordPlaceholder",
-    "defaultMessage": "heslo",
-  },
-  {
-    "id": "auth.email.passwordRecoveryLegend",
-    "defaultMessage": "Obnovení hesla",
-  },
-  {
-    "id": "auth.email.recoveryEmailSent",
-    "defaultMessage": "Email pro obnovení hesla odeslán.",
-  },
-  {
-    "id": "auth.email.resetPassword",
-    "defaultMessage": "Reset hesla",
-  },
-  {
-    "id": "auth.signInError.email",
-    "defaultMessage": "Emailová adresa není správná.",
-  },
-  {
-    "id": "auth.signInError.required",
-    "defaultMessage": "Prosím vyplňte {prop, select, email {email} password {heslo}}.",
-  },
-  {
-    "id": "auth.signInError.simplePassword",
-    "defaultMessage": "Heslo musí obsahovat alespoň {minLength} znaků.",
-  },
-  {
     "id": "auth.social.facebookSignIn",
     "defaultMessage": "Přihlášení přes Facebook",
   },
@@ -159,22 +115,6 @@ export default [
   {
     "id": "firebase.error.INVALID_USER",
     "defaultMessage": "Nesprávný uživatel.",
-  },
-  {
-    "id": "footer.madeByHtml",
-    "defaultMessage": "stořeno Actum pro Actum",
-  },
-  {
-    "id": "intl.page.unreadCount",
-    "defaultMessage": "{unreadCount, plural, one {zpráva} other {zpráv}}",
-  },
-  {
-    "id": "loading.loadingText",
-    "defaultMessage": "Nahrávám",
-  },
-  {
-    "id": "loading.longLoadingText",
-    "defaultMessage": "Stále nahrávám...",
   },
   {
     "id": "notFound.continue",
