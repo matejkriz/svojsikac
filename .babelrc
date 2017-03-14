@@ -5,8 +5,8 @@
 // https://github.com/facebook/react-native/tree/master/babel-preset
 {
   "presets": [
-    "next/babel",
     "react-native",
+    "next/babel",
   ],
   "env": {
     "production": {
