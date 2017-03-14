@@ -54,7 +54,7 @@ More info in separate document [E2E-TESTING.md](https://github.com/actum/devstac
 
 ## Production Tasks
 
-- `gulp build -p` build app for production
+- `gulp build` build app for production
 - `npm test` run all checks and tests
 
 See [complete list of production tasks](https://github.com/este/este/tree/af909fce150201a7355a52321f555df8af7994f5#production-tasks) on Este.
