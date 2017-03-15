@@ -1,0 +1,6 @@
+// This .babelrc is for Next.js
+{
+  "presets": [
+    "next/babel",
+  ],
+}
