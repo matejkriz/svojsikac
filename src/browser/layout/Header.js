@@ -6,7 +6,7 @@ export default () => (
     <div>
       <span className="logo">ACTUM DEVSTACK </span>
       <span className="desctiption">
-        (based on <a title="Este on github" href="https://github.com/este">Este</a>)
+        (based on <a className="link" title="Este on github" href="https://github.com/este">Este</a>)
       </span>
     </div>
     <nav>
@@ -24,7 +24,7 @@ export default () => (
           padding: 1em;
         }
         .description {
-          fontSize: 0.7em;
+          font-size: 0.7em;
         }
         .logo {
           font-family: Arial;
@@ -34,12 +34,17 @@ export default () => (
           display: flex;
           width: 100%;
         }
-        a {
+        .link {
           color: white;
-          fontFamily: Arial;
+          font-family: Arial;
+          text-decoration: none;
+        }
+        nav a {
+          color: white;
+          font-family: Arial;
           padding: 0.5em;
-          textDecoration: none;
-        },
+          text-decoration: none;
+        }
     `}</style>
   </header>
 );
