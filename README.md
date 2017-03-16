@@ -64,7 +64,8 @@ See [complete list of production tasks](https://github.com/este/este/tree/af909f
 
 - create branch in your project's repo (e.g. `devstack-update`) and push it
 - add devstack as remote to your project (`git remote add devstack https://github.com/actum/devstack.git`)
-- merge branch from devstack remote to `devstack-update`
+- fetch remote (`git fetch devstack`)
+- merge branch from devstack remote to `devstack-update` (use `--allow-unrelated-histories` if necessary)
 - merge your project's `master` to `devstack-update`
 - solve eventual conflicts
 - create PR from `devstack-update` to your `master`
