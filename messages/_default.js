@@ -49,10 +49,6 @@ export default [
     "defaultMessage": "You have unsaved changes. Are you sure?",
   },
   {
-    "id": "app.FieldError.required",
-    "defaultMessage": "{prop, select, description {Please enter a description.} email {Please enter an email address.} name {Please enter a name.} password {Please enter a password.} other {You can't leave this empty.}}",
-  },
-  {
     "id": "app.links.fields",
     "defaultMessage": "Fields",
   },
@@ -127,18 +123,6 @@ export default [
   {
     "id": "firebase.error.INVALID_USER",
     "defaultMessage": "The specified user account does not exist.",
-  },
-  {
-    "id": "footer.madeByHtml",
-    "defaultMessage": "Made by Actum for Actum",
-  },
-  {
-    "id": "loading.loadingText",
-    "defaultMessage": "Loading",
-  },
-  {
-    "id": "loading.longLoadingText",
-    "defaultMessage": "Still loading, please check your connection",
   },
   {
     "id": "notFound.continue",

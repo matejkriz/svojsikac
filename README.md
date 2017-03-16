@@ -27,6 +27,7 @@
 
 - `gulp eslint` eslint
 - `gulp eslint --fix` fix fixable eslint issues
+- `gulp messages-export` export messages for translators (with `MISSING` prefix when untranslated)
 - `gulp messages-extract` extract messages for translation
 - `gulp messages-check` check missing and unused translations
 - `gulp messages-clear` remove unused translations
