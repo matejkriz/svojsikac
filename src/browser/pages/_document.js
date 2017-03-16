@@ -4,12 +4,14 @@ import Document, { Head, Main, NextScript } from 'next/document';
 import flush from 'styled-jsx/server';
 
 export default class MyDocument extends Document {
-  static getInitialProps({ renderPage }) {
-    const { html, head } = renderPage();
+  static getInitialProps(context) {
+    const { html, head } = context.renderPage();
+    const { req: { localeDataScript } } = context;
     const styles = flush();
     return {
       head,
       html,
+      localeDataScript,
       styles,
     };
   }
@@ -26,6 +28,12 @@ export default class MyDocument extends Document {
         </Head>
         <body>
           <Main />
+          <script
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={{
+              __html: this.props.localeDataScript,
+            }}
+          />
           <NextScript />
         </body>
       </html>

@@ -125,6 +125,18 @@ export default [
     "defaultMessage": "The specified user account does not exist.",
   },
   {
+    "id": "home.description",
+    "defaultMessage": "Starter kit for universal full–fledged React apps. One stack for browser, mobile, server. Based on Este.",
+  },
+  {
+    "id": "home.time",
+    "defaultMessage": "The time is",
+  },
+  {
+    "id": "home.welcome",
+    "defaultMessage": "Welcome to actum devstack",
+  },
+  {
     "id": "notFound.continue",
     "defaultMessage": "Continue here please.",
   },
