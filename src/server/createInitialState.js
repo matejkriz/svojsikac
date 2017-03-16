@@ -1,9 +1,9 @@
 // @flow
-import config from '../config';
-import configReducer from '../../common/config/reducer';
-import deviceReducer from '../../common/device/reducer';
-import intlReducer from '../../common/intl/reducer';
-import loadMessages from '../intl/loadMessages';
+import config from './config';
+import configReducer from '../common/config/reducer';
+import deviceReducer from '../common/device/reducer';
+import intlReducer from '../common/intl/reducer';
+import loadMessages from './intl/loadMessages';
 
 const messages = loadMessages();
 
