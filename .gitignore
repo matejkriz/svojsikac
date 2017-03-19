@@ -51,4 +51,4 @@ src/native/initialState.js
 webpack-assets.json
 
 # Next.js
-src/browser/.next
+.next/

@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import Page from '../layout/Page';
+import Page from '../browser/layout/Page';
 
 const InfoPage = () => (
   <Page>

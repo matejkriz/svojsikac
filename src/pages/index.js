@@ -1,6 +1,8 @@
 import React from 'react';
-import Page from '../layout/Page';
-import withIntl from '../components/withIntl';
+import Page from '../browser/layout/Page';
+import withIntl from '../browser/components/withIntl';
+import withRedux from 'next-redux-wrapper';
+import { initStore } from '../common/redux';
 import { FormattedTime, FormattedMessage, defineMessages } from 'react-intl';
 
 // eslint-disable max-len
@@ -47,4 +49,9 @@ const Homepage = () => (
   </Page>
 );
 
-export default withIntl(Homepage);
+export default withRedux(
+  initStore,
+  state => ({
+    intl: state,
+  }),
+)(withIntl(Homepage));
