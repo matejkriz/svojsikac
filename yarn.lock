@@ -7893,6 +7893,10 @@ net@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/net/-/net-1.0.2.tgz#d1757ec9a7fb2371d83cf4755ce3e27e10829388"
 
+next-redux-wrapper@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/next-redux-wrapper/-/next-redux-wrapper-1.0.0.tgz#8ddc993f6609ba85958d21afba8f5926339ce7b6"
+
 next@2.0.0-beta.36:
   version "2.0.0-beta.36"
   resolved "https://registry.yarnpkg.com/next/-/next-2.0.0-beta.36.tgz#4f7236d39b0ca05257882aaba24dd786cc6f26ea"

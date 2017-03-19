@@ -1,9 +1,9 @@
 // @flow
 import Header from './Header';
 import React from 'react';
-import linksMessages from '../../common/app/linksMessages';
-import { Alert, Container } from './components';
-import Match from '../../common/app/components/Match';
+import linksMessages from '../../common/linksMessages';
+import { Container } from './components';
+import { Match } from 'react-router';
 import { injectIntl, intlShape } from 'react-intl';
 
 const titles = {
@@ -19,7 +19,6 @@ const Page = ({ component: Component, intl, pattern, ...props }) => (
         {titles[pattern] &&
           <Header title={intl.formatMessage(titles[pattern])} />
         }
-        <Alert />
         <Component {...renderProps} />
       </Container>
     )}
