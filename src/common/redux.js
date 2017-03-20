@@ -1,4 +1,4 @@
-// @flow weak
+// @flow
 /* global window */
 import { createStore, combineReducers, compose } from 'redux';
 
