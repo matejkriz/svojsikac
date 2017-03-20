@@ -41,6 +41,16 @@ See [complete list of dev tasks](https://github.com/este/este/tree/af909fce15020
 
 More info in separate document [E2E-TESTING.md](https://github.com/actum/devstack/blob/master/E2E-TESTING.md)
 
+## Next.js
+Look at [Next.js github](https://github.com/zeit/next.js/), not just the old [blogpost](https://zeit.co/blog/next).
+
+Next.js give us:
+- server side rendering with automatic code splitting
+- prefetching pages
+- nice [documentation](https://github.com/zeit/next.js/blob/master/readme.md) and many [examples](https://github.com/zeit/next.js/tree/master/examples)
+
+Almost everything in Next.js is configurable, but the folders structure not yet. So the `pages` folder is temporally in `src`, although it should goes inside `browser` folder. The `pages` folder will be moved as soon as this PR [#936](https://github.com/zeit/next.js/pull/936/) will be merged in Next.js.
+
 ## [Storybook](https://github.com/storybooks/react-storybook)
 - `npm run storybook-web` run Storybook for Web
 - point your browser to [localhost:9001](http://localhost:9001)
