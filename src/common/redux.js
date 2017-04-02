@@ -14,8 +14,6 @@ export const initStore = (initialState: Object) => {
     intl,
   });
   /* eslint-disable no-underscore-dangle */
-  // const middleware = typeof window !== 'undefined' &&
-  //   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
   const composeEnhancers = (typeof window !== 'undefined' &&
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
     compose;
