@@ -1,14 +1,11 @@
 // @flow
 // Remember, circular dependencies sucks. Never "import { foo } from './'".
 // TODO: Refactor by the browser design.
-import Alert from './Alert';
 import Button from './Button';
 import CenteredContainer from './CenteredContainer';
-import Checkbox from './Checkbox';
 import Container from './Container';
 import Link from './Link';
 import Text from './Text';
-import TextInput from './TextInput';
 import {
   FormattedDate,
   FormattedMessage,
@@ -19,10 +16,8 @@ import {
 } from './formatted';
 
 export {
-  Alert,
   Button,
   CenteredContainer,
-  Checkbox,
   Container,
   Link,
   FormattedDate,
@@ -32,5 +27,4 @@ export {
   FormattedRelative,
   FormattedTime,
   Text,
-  TextInput,
 };
