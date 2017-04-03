@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     borderBottomColor: theme.bright(theme.brandPrimary),
     borderBottomWidth: StyleSheet.hairlineWidth,
     flexDirection: 'row',
-    justifyContent: 'space-between', // align items in the flexDirection
+    justifyContent: 'center', // align items in the flexDirection
     paddingBottom: theme.fontSize * 0.625,
     paddingTop: (theme.fontSize * 0.625) + paddingTopOffset,
   },
