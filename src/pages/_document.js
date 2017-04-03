@@ -21,10 +21,6 @@ export default class MyDocument extends Document {
       <html>
         <Head>
           <style>{this.props.styles}</style>
-          <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css?family=Roboto:300,500,700"
-          />
         </Head>
         <body>
           <Main />
