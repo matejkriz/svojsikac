@@ -39,13 +39,19 @@ const Page = ({ children, title }) => (
     <main className="main-container">{children}</main>
     <Footer />
 
-    {
-      // Here you may want to place some global styles setting
-      // like Reboot from getbootstrap https://v4-alpha.getbootstrap.com/content/reboot/
-      // See also https://github.com/actum/scooby/blob/master/src/layout/Page.js#L43
-    }
+    <style jsx global>
+      {
+        `
+        body {
+          margin: 0;
+        }
+        `
+      }
+    </style>
 
-    <style jsx>{`
+    <style jsx>
+      {
+        `
         .page-container {
           display: flex;
           flex-direction: column;
@@ -66,7 +72,9 @@ const Page = ({ children, title }) => (
         main {
           flex: 1;
         }
-    `}</style>
+    `
+      }
+    </style>
   </div>
 );
 
