@@ -2,7 +2,7 @@ import args from './support/args';
 import childProcess from 'child_process';
 import gulp from 'gulp';
 
-gulp.task('server', ['env'], (done) => {
+gulp.task('run', ['env'], done => {
   const task = args.production ? 'start' : 'dev';
 
   childProcess
