@@ -1,7 +1,8 @@
+import React from 'react';
 import { configure, addDecorator } from '@kadira/storybook';
 
-addDecorator((story) => (
-  <div style={{margin:30}}>
+addDecorator(story => (
+  <div style={{ margin: 30 }}>
     {story()}
   </div>
 ));

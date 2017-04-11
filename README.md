@@ -33,8 +33,6 @@
 - `gulp messages-clear` remove unused translations
 - `npm run build-size-check` display info about latest build
 
-See [complete list of dev tasks](https://github.com/este/este/tree/af909fce150201a7355a52321f555df8af7994f5#dev-tasks) on Este.
-
 ## E2E Tasks
 - `gulp test-e2e [-p] -d [ios|android|browser|i|a|b] [-s ${folderName}]` start E2E tests for selected platform, possibly in production mode
 - `android avd &` open AVD manager to start Android simulator
@@ -53,9 +51,9 @@ Next.js give us:
 Almost everything in Next.js is configurable, but the folders structure not yet. So the `pages` folder is temporally in `src`, although it should goes inside `browser` folder. The `pages` folder will be moved as soon as this PR [#936](https://github.com/zeit/next.js/pull/936/) will be merged in Next.js.
 
 ## [Storybook](https://github.com/storybooks/react-storybook)
-- `npm run storybook-web` run Storybook for Web
+- `yarn run storybook-web` run Storybook for Web
 - point your browser to [localhost:9001](http://localhost:9001)
-- `npm run storybook-native` run Storybook for native
+- `yarn run storybook-native` run Storybook for native
 - We can show react-native components in browser due to the library [react-native-web](https://github.com/necolas/react-native-web)
 - point your browser to [localhost:9002](http://localhost:9002)
 
@@ -66,9 +64,8 @@ Almost everything in Next.js is configurable, but the folders structure not yet.
 ## Production Tasks
 
 - `gulp build` build app for production
+- `gulp start` run app in production mode
 - `npm test` run all checks and tests
-
-See [complete list of production tasks](https://github.com/este/este/tree/af909fce150201a7355a52321f555df8af7994f5#production-tasks) on Este.
 
 ## Updates from devstack to your project
 
