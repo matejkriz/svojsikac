@@ -16,7 +16,7 @@
     "test:e2e": "mocha test/e2e --opts ./test/e2e/mocha.opts --compilers js:babel-core/register",
     "test:server": "appium &",
     "test:webdriver": "webdriver-manager start &",
-    "build-size-check": "source-map-explorer build/app-*.js"
+    "build-size-check": "source-map-explorer build/commons.js"
   },
   "engines": {
     "node": ">=6"
