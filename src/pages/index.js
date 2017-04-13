@@ -1,9 +1,11 @@
 import React from 'react';
 import Page from '../browser/layout/Page';
 import withIntl from '../browser/components/withIntl';
-import withRedux from 'next-redux-wrapper';
-import { initStore } from '../common/redux';
+import app from '../browser/app';
+import { compose } from 'ramda';
+import { connect } from 'react-redux';
 import { FormattedTime, FormattedMessage, defineMessages } from 'react-intl';
+import { setCurrentLocale } from '../common/intl/actions';
 
 // eslint-disable max-len
 const messages = defineMessages({
@@ -31,9 +33,14 @@ const Homepage = () => (
       <FormattedMessage {...messages.description} />
     </p>
     <p className="time">
-      <FormattedMessage {...messages.time} />: <FormattedTime value={Date.now()} />
+      <FormattedMessage {...messages.time} />
+      :
+      {' '}
+      <FormattedTime value={Date.now()} />
     </p>
-    <style jsx>{`
+    <style jsx>
+      {
+        `
       .description {
         font-size: 0.8em;
       }
@@ -45,13 +52,18 @@ const Homepage = () => (
         color: #908483;
         text-transform: uppercase;
       }
-    `}</style>
+    `
+      }
+    </style>
   </Page>
 );
 
-export default withRedux(
-  initStore,
-  state => ({
-    intl: state,
-  }),
+export default compose(
+  app,
+  connect(
+    (state: State) => ({
+      intl: state.intl,
+    }),
+    { setCurrentLocale },
+  ),
 )(withIntl(Homepage));

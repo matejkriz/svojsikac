@@ -2,7 +2,7 @@
 import React from 'react';
 import ReactNativeI18n from 'react-native-i18n';
 import Root from './app/Root';
-import { initStore } from '../common/redux';
+import createReduxStore from '../common/createReduxStore';
 import initialState from './initialState';
 import { AppRegistry } from 'react-native';
 
@@ -21,10 +21,8 @@ const nativeInitialState = {
   },
 };
 
-const store = initStore(nativeInitialState);
+const store = createReduxStore(nativeInitialState);
 
-const Este = () => (
-  <Root store={store} />
-);
+const Este = () => <Root store={store} />;
 
 AppRegistry.registerComponent('Este', () => Este);
