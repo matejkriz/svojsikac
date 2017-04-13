@@ -5,7 +5,8 @@ import { diff } from './support/messages';
 
 gulp.task('messages-check', ['messages-extract'], () => {
   const messages = loadMessages({ includeDefault: true });
-  const defaultMessagesKeys = Object.keys(messages._default); // eslint-disable-line no-underscore-dangle
+  // eslint-disable-next-line no-underscore-dangle
+  const defaultMessagesKeys = Object.keys(messages._default);
 
   const log = (what, messagesKeys) => {
     if (!messagesKeys.length) return;
