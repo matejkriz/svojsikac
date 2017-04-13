@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import fs from 'fs';
 import gulp from 'gulp';
-import loadMessages from '../src/server/intl/loadMessages';
+import loadMessages from '../src/common/intl/loadMessages';
 import { diff, messagesToCode } from './support/messages';
 
 gulp.task('messages-clear', ['messages-extract'], () => {
@@ -11,7 +11,7 @@ gulp.task('messages-clear', ['messages-extract'], () => {
 
   Object.keys(messages)
     .filter(locale => locale !== '_default')
-    .forEach((locale) => {
+    .forEach(locale => {
       const localeMessagesKeys = Object.keys(messages[locale]);
       const unusedMessagesKeys = diff(localeMessagesKeys, defaultMessagesKeys);
       const clearedMessages = require(`../messages/${locale}`) // eslint-disable-line import/no-dynamic-require

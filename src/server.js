@@ -1,14 +1,16 @@
+/* eslint-env node */
+/* eslint-disable no-console */
 // Bootstrap environment
 require('babel-register');
 require('babel-polyfill');
 
 const express = require('express');
 const next = require('next');
-const config = require('./config').default;
+const config = require('./common/config').default;
 const { readFileSync } = require('fs');
 const accepts = require('accepts');
-const loadMessages = require('./intl/loadMessages').default;
-const polyfillLocales = require('./intl/polyfillLocales');
+const loadMessages = require('./common/intl/loadMessages').default;
+const polyfillLocales = require('./common/intl/polyfillLocales');
 
 polyfillLocales(global, config.locales);
 

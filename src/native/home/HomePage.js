@@ -2,6 +2,8 @@
 import React from 'react';
 import { CenteredContainer, Text } from '../app/components';
 import { Platform, StyleSheet } from 'react-native';
+import { FormattedMessage } from '../app/components/formatted';
+import messages from '../../common/linksMessages';
 
 const styles = StyleSheet.create({
   text: {
@@ -14,6 +16,7 @@ const HomePage = () => (
     <Text style={styles.text}>
       {'Actum app'}
     </Text>
+    <FormattedMessage {...messages.home} />
     <Text style={styles.text}>
       {Platform.select({
         android: `

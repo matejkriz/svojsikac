@@ -1,12 +1,11 @@
 /* eslint-disable no-console */
 import gulp from 'gulp';
-import loadMessages from '../src/server/intl/loadMessages';
+import loadMessages from '../src/common/intl/loadMessages';
 import { diff } from './support/messages';
 
 gulp.task('messages-check', ['messages-extract'], () => {
   const messages = loadMessages({ includeDefault: true });
-  const defaultMessagesKeys = Object
-    .keys(messages._default); // eslint-disable-line no-underscore-dangle
+  const defaultMessagesKeys = Object.keys(messages._default); // eslint-disable-line no-underscore-dangle
 
   const log = (what, messagesKeys) => {
     if (!messagesKeys.length) return;
@@ -16,7 +15,7 @@ gulp.task('messages-check', ['messages-extract'], () => {
 
   Object.keys(messages)
     .filter(locale => locale !== '_default')
-    .forEach((locale) => {
+    .forEach(locale => {
       const localeMessagesKeys = Object.keys(messages[locale]);
       const missingMessagesKeys = diff(defaultMessagesKeys, localeMessagesKeys);
       const unusedMessagesKeys = diff(localeMessagesKeys, defaultMessagesKeys);

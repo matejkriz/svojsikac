@@ -2,8 +2,8 @@ import fs from 'fs';
 import gulp from 'gulp';
 
 // Native can't run Node code, so we need gulp task to pre-write initialState.
-gulp.task('native', ['env'], (done) => {
-  const createInitialState = require('../src/server/createInitialState').default;
+gulp.task('native', ['env'], done => {
+  const createInitialState = require('../src/common/createInitialState').default;
 
   const initialState = createInitialState();
   const string = JSON.stringify(initialState, null, 2);
