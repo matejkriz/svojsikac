@@ -1,27 +1,22 @@
 import React from 'react';
 import Document, { Head, Main, NextScript } from 'next/document';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import flush from 'styled-jsx/server';
 
+// The document (which is SSR-only) is customized to expose the locale
+// data for the user's locale for React Intl to work in the browser.
 export default class MyDocument extends Document {
-  static getInitialProps(context) {
-    const { html, head } = context.renderPage();
+  static async getInitialProps(context) {
+    const props = await super.getInitialProps(context);
     const { req: { localeDataScript } } = context;
-    const styles = flush();
     return {
-      head,
-      html,
+      ...props,
       localeDataScript,
-      styles,
     };
   }
 
   render() {
     return (
       <html>
-        <Head>
-          <style>{this.props.styles}</style>
-        </Head>
+        <Head />
         <body>
           <Main />
           <script
