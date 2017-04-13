@@ -5,15 +5,12 @@ require('babel-polyfill');
 const express = require('express');
 const next = require('next');
 const config = require('./config').default;
-// Polyfill Node with `Intl` that has data for all locales.
-// See: https://formatjs.io/guides/runtime-environments/#server
-const IntlPolyfill = require('intl');
 const { readFileSync } = require('fs');
 const accepts = require('accepts');
 const loadMessages = require('./intl/loadMessages').default;
+const polyfillLocales = require('./intl/polyfillLocales');
 
-Intl.NumberFormat = IntlPolyfill.NumberFormat;
-Intl.DateTimeFormat = IntlPolyfill.DateTimeFormat;
+polyfillLocales(global, config.locales);
 
 const dev = process.env.NODE_ENV !== 'production';
 const dir = config.nextjsDir;
@@ -25,7 +22,7 @@ const languages = config.locales;
 // We need to expose React Intl's locale data on the request for the user's
 // locale. This function will also cache the scripts by lang in memory.
 const localeDataCache = new Map();
-const getLocaleDataScript = (locale) => {
+const getLocaleDataScript = locale => {
   const lang = locale.split('-')[0];
   if (!localeDataCache.has(lang)) {
     const localeDataFile = require.resolve(`react-intl/locale-data/${lang}`);
@@ -37,8 +34,7 @@ const getLocaleDataScript = (locale) => {
 
 const getMessages = loadMessages();
 
-app.prepare()
-.then(() => {
+app.prepare().then(() => {
   const server = express();
 
   server.get('*', (req, res) => {
@@ -50,7 +46,7 @@ app.prepare()
     return handle(req, res);
   });
 
-  server.listen(config.port, (err) => {
+  server.listen(config.port, err => {
     if (err) throw err;
     console.log(`> Ready on http://localhost:${config.port}`);
   });
