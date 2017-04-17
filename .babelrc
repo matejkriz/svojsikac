@@ -1,0 +1,16 @@
+// This .babelrc is for react-native and gulpfile.babel.js.
+// It's trade-off for super simple React Native integration into Este.
+// Browser babel configuration is in /src/browser/
+// https://github.com/facebook/react-native/tree/master/babel-preset
+{
+  "presets": [
+    "react-native",
+  ],
+  "env": {
+    "production": {
+      "plugins": [
+        "transform-react-constant-elements"
+      ]
+    }
+  }
+}
