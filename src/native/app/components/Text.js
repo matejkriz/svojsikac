@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import theme from '../themes/initial';
 import { StyleSheet, Text } from 'react-native';
 
@@ -6,7 +7,8 @@ import { StyleSheet, Text } from 'react-native';
 const round = value => Math.round(value);
 
 const styles = StyleSheet.create({
-  text: { // eslint-disable-line react-native/no-unused-styles
+  text: {
+    // eslint-disable-line react-native/no-unused-styles
     color: theme.textColor,
     fontFamily: theme.fontFamily,
     fontSize: theme.fontSize,
@@ -18,12 +20,6 @@ const styles = StyleSheet.create({
 const normalizeMultilineString = message => message.replace(/ +/g, ' ').trim();
 
 class AppText extends React.Component {
-
-  static propTypes = {
-    children: React.PropTypes.node,
-    style: Text.propTypes.style,
-  };
-
   onTextRef(text) {
     this.text = text;
   }
@@ -57,12 +53,19 @@ class AppText extends React.Component {
       >
         {typeof children === 'string'
           ? normalizeMultilineString(children)
-          : children
-        }
+          : children}
       </Text>
     );
   }
-
 }
+
+AppText.propTypes = {
+  children: PropTypes.node.isRequired,
+  style: Text.propTypes.style,
+};
+
+AppText.defaultProps = {
+  style: '',
+};
 
 export default AppText;
