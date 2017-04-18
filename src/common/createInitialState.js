@@ -1,14 +1,14 @@
 // @flow
 import config from './config';
-import intlReducer from '../common/intl/reducer';
+import intlReducer from './intl/reducer';
 import loadMessages from './intl/loadMessages';
 
 const messages = loadMessages();
 
-const createInitialState = () => ({
+const createInitialState = (locale: String) => ({
   intl: {
     ...intlReducer(),
-    currentLocale: config.defaultLocale,
+    currentLocale: locale || config.defaultLocale,
     defaultLocale: config.defaultLocale,
     locales: config.locales,
     messages,

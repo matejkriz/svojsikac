@@ -30,7 +30,7 @@ const createApp = (Component, store, props) => (
 const createGetInitialProps = Component =>
   async ctx => {
     const headers = ctx.req ? ctx.req.headers : {};
-    const initialState = {};
+    const initialState = ctx.req ? ctx.req.initialState : {};
     const store = getReduxStore(initialState);
 
     const props = {
