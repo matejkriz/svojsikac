@@ -16,4 +16,8 @@ export default [
     id: 'home.welcome',
     defaultMessage: 'Welcome to actum devstack',
   },
+  {
+    id: 'info.dev-tasks',
+    defaultMessage: 'Dev Tasks',
+  },
 ];

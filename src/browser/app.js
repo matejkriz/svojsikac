@@ -3,6 +3,7 @@ import type { State } from '../common/types';
 import React from 'react';
 import { Provider as Redux } from 'react-redux';
 import createReduxStore from '../common/createReduxStore';
+import withIntl from '../browser/components/withIntl';
 
 // App composition root.
 // blog.ploeh.dk/2011/07/28/CompositionRoot
@@ -54,6 +55,7 @@ const createGetInitialProps = Component =>
 // Higher order component.
 // facebook.github.io/react/docs/higher-order-components.html
 const app = (Component: any) => {
+  const ComponentWithIntl = withIntl(Component);
   const App = (
     props: {
       headers: Object,
@@ -62,9 +64,9 @@ const app = (Component: any) => {
   ) => {
     const { initialState } = props;
     const store = getReduxStore(initialState);
-    return createApp(Component, store, props);
+    return createApp(ComponentWithIntl, store, props);
   };
-  App.getInitialProps = createGetInitialProps(Component);
+  App.getInitialProps = createGetInitialProps(ComponentWithIntl);
   return App;
 };
 

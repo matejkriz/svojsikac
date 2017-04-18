@@ -1,13 +1,8 @@
 import React from 'react';
 import Page from '../browser/layout/Page';
-import withIntl from '../browser/components/withIntl';
 import app from '../browser/app';
-import { compose } from 'ramda';
-import { connect } from 'react-redux';
 import { FormattedTime, FormattedMessage, defineMessages } from 'react-intl';
-import { setCurrentLocale } from '../common/intl/actions';
 
-// eslint-disable max-len
 const messages = defineMessages({
   description: {
     defaultMessage: 'Starter kit for universal full–fledged React apps. One stack for browser, mobile, server. Based on Este.',
@@ -22,7 +17,6 @@ const messages = defineMessages({
     id: 'home.welcome',
   },
 });
-// eslint-enable max-len
 
 const Homepage = () => (
   <Page>
@@ -58,12 +52,4 @@ const Homepage = () => (
   </Page>
 );
 
-export default compose(
-  app,
-  connect(
-    (state: State) => ({
-      intl: state.intl,
-    }),
-    { setCurrentLocale },
-  ),
-)(withIntl(Homepage));
+export default app(Homepage);
