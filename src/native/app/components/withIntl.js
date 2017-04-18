@@ -1,15 +1,16 @@
 // @flow
 import type { State } from '../../../common/types';
 import React from 'react';
-import { IntlProvider } from 'react-intl';
+import { IntlProvider, injectIntl } from 'react-intl';
 import { connect } from 'react-redux';
 
 type Props = {
   intl: Object,
 };
 
-const withIntl = (WrappedComponent: Function) => {
-  const WithIntl = ({ intl, ...props }: Props) => {
+export default (WrappedComponent: Function) => {
+  const WrappedComponentWithIntl = injectIntl(WrappedComponent);
+  const withIntl = ({ intl, ...props }: Props) => {
     const { currentLocale, defaultLocale, initialNow, messages } = intl;
 
     return (
@@ -20,17 +21,12 @@ const withIntl = (WrappedComponent: Function) => {
         locale={currentLocale}
         messages={messages[currentLocale]}
       >
-        <WrappedComponent {...props} />
+        <WrappedComponentWithIntl {...props} />
       </IntlProvider>
     );
   };
 
-
-  return connect(
-    (state: State) => ({
-      intl: state.intl,
-    }),
-  )(WithIntl);
+  return connect((state: State) => ({
+    intl: state.intl,
+  }))(withIntl);
 };
-
-export default withIntl;
