@@ -1,6 +1,15 @@
 // @flow
 import React from 'react';
 import Page from '../browser/layout/Page';
+import app from '../browser/app';
+import { FormattedMessage, defineMessages } from 'react-intl';
+
+const messages = defineMessages({
+  devTasks: {
+    defaultMessage: 'Dev Tasks',
+    id: 'info.dev-tasks',
+  },
+});
 
 const InfoPage = () => (
   <Page>
@@ -14,23 +23,23 @@ const InfoPage = () => (
         </ul>
       </article>
       <article>
-        <h2>Dev Tasks</h2>
+        <h2><FormattedMessage {...messages.devTasks} /></h2>
         <ul>
           <li className="list-item">
             <span className="code">gulp</span>
             <span> run web app in development mode</span>
           </li>
           <li className="list-item">
-           <span className="code">gulp ios</span>
-           <span> run iOS app in development mode</span>
+            <span className="code">gulp ios</span>
+            <span> run iOS app in development mode</span>
           </li>
           <li className="list-item">
             <span className="code">gulp ios -p</span>
             <span> run iOS app in production mode</span>
           </li>
           <li className="list-item">
-             <span className="code">gulp android</span>
-             <span> run Android app in development mode</span>
+            <span className="code">gulp android</span>
+            <span> run Android app in development mode</span>
           </li>
           <li className="list-item">
             <span className="code">gulp jest</span>
@@ -68,7 +77,9 @@ const InfoPage = () => (
       </article>
       <a href="https://github.com/actum/devstack">more info...</a>
     </div>
-    <style jsx>{`
+    <style jsx>
+      {
+        `
       .code {
         background-color: #908483;
         color: #fff;
@@ -80,8 +91,10 @@ const InfoPage = () => (
       .message {
         color: #908483;
       }
-    `}</style>
+    `
+      }
+    </style>
   </Page>
 );
 
-export default InfoPage;
+export default app(InfoPage);

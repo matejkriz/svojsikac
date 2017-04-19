@@ -5,9 +5,9 @@
 ## Prerequisites
 
 - [node.js](http://nodejs.org) Node 6+, install via [nvm](https://github.com/creationix/nvm) highly recommended
-- [gulp](http://gulpjs.com/) `npm install -g gulp`
+- [gulp](http://gulpjs.com/) `yarn global add gulp`
 - [yarn](https://yarnpkg.com/en/docs/install)
-- [react-native-cli](http://facebook.github.io/react-native/docs/getting-started.html) `npm install -g react-native-cli`
+- [react-native-cli](http://facebook.github.io/react-native/docs/getting-started.html) `yarn global add react-native-cli`
 
 ## Start Development
 

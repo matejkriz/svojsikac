@@ -3,14 +3,17 @@ import React from 'react';
 import { Match } from 'react-router';
 import { Text } from './';
 
-const Link = ({
-  activeStyle,
-  children,
-  exactly,
-  onPress,
-  style,
-  to,
-}, { router }) => (
+const Link = (
+  {
+    activeStyle = {},
+    children,
+    exactly = false,
+    onPress = null,
+    style = {},
+    to,
+  },
+  { router },
+) => (
   <Match exactly={exactly} pattern={to}>
     {({ matched }) => (
       <Text
@@ -40,7 +43,7 @@ Link.propTypes = {
   to: React.PropTypes.oneOfType([
     React.PropTypes.string,
     React.PropTypes.object,
-  ]),
+  ]).isRequired,
 };
 
 export default Link;

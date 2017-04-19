@@ -14,11 +14,8 @@ type Props = {
   style?: any,
 };
 
-const CenteredContainer = ({ style, ...props }: Props) => (
-  <Container
-    {...props}
-    style={[styles.centeredContainer, style]}
-  />
+const CenteredContainer = ({ style = {}, ...props }: Props) => (
+  <Container {...props} style={[styles.centeredContainer, style]} />
 );
 
 export default CenteredContainer;

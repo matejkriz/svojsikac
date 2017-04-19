@@ -30,10 +30,10 @@ for browser, mobile and server. This means there are some abstractions in the co
 it's not always clear where to look when you are doing something for the first time.
 
 All the source code of your app is in `src` folder. There four sub folders:
- - `browser` - browser specific code. UI components, routes and some wiring in `index.js`, `main.js`, `app/App.js` and `Root.js`.
- - `common` - configuration and shared business logic. All the code that can be shared across platforms (reducers, actions...) and global configuration is here.
+ - `browser` - browser specific code. UI components and some wiring in `app.js` and `components/withIntl.js`.
+ - `common` - configuration and shared business logic. All the code that can be shared across platforms (reducers, actions, types...) and global configuration is here.
  - `native` - mobile app code. Same as `browser`, only UI components and wiring should be here if you are developing for more platforms.
- - `server` - backend part, by default server side rendering of browser app. It's implemented with Express, add new routes into `frontend/index.js` when needed.
+ - `pages` - pages on browser and server (Next.js create routes from here)
 
 It's absolutely OK to have code only in `native` folder when you are doing
 just a React Native mobile app.
@@ -119,7 +119,7 @@ To enable live reload, open the Developer Menu by typing `Cmd+M` and select
 ## Tests
 
 ```bash
-npm test
+yarn test
 ```
 
 This command runs ESLint, Jest, Flow and when there is no fail, the browser app is
@@ -156,11 +156,11 @@ gulp test-e2e -d android
 ## Build browser app
 
 ```bash
-npm run build -p
+gulp build
 ```
 
 JS, CSS and source map files will be stored in `build` directory. If you are
-curious what's included in the bundle, run `npm run build-size-check`
+curious what's included in the bundle, run `yarn run build-size-check`
 
 ## Build iOS app
 

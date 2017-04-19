@@ -9,8 +9,8 @@ const next = require('next');
 const config = require('./common/config').default;
 const { readFileSync } = require('fs');
 const accepts = require('accepts');
-const loadMessages = require('./common/intl/loadMessages').default;
 const polyfillLocales = require('./common/intl/polyfillLocales');
+const createInitialState = require('./common/createInitialState').default;
 
 polyfillLocales(global, config.locales);
 
@@ -34,17 +34,14 @@ const getLocaleDataScript = locale => {
   return localeDataCache.get(lang);
 };
 
-const getMessages = loadMessages();
-
 app.prepare().then(() => {
   const server = express();
 
   server.get('*', (req, res) => {
     const accept = accepts(req);
     const locale = accept.language(languages);
-    req.locale = locale;
     req.localeDataScript = getLocaleDataScript(locale);
-    req.messages = getMessages[locale];
+    req.initialState = createInitialState(locale);
     return handle(req, res);
   });
 
