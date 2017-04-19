@@ -3,9 +3,15 @@ import createReduxMiddleware from './createReduxMiddleware';
 import createReduxReducer from './createReduxReducer';
 import { createStore } from 'redux';
 
-const createReduxStore = (initialState: State) => {
-  const reducer = createReduxReducer();
-  const middleware = createReduxMiddleware();
+type Options = {|
+  platformReducers?: Reducers,
+  platformMiddlewares?: Middlewares,
+|};
+
+const createReduxStore = (initialState: State, options?: Options) => {
+  const { platformMiddlewares = [], platformReducers = {} } = options || {};
+  const reducer = createReduxReducer(platformReducers);
+  const middleware = createReduxMiddleware(platformMiddlewares);
   return createStore(reducer, initialState, middleware);
 };
 

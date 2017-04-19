@@ -1,5 +1,5 @@
 // @flow
-import type { Action, ThunkAction } from '../common/types';
+import type { Action, Middlewares, ThunkAction } from '../common/types';
 import { applyMiddleware, compose } from 'redux';
 import { createLogger } from 'redux-logger';
 
@@ -23,8 +23,8 @@ const createDiMiddleware = ({ dispatch, getState }): ThunkAction =>
           : action,
       );
 
-const createReduxMiddleware = () => {
-  const middleware = [createDiMiddleware];
+const createReduxMiddleware = (platformMiddlewares: Middlewares) => {
+  const middleware = [...platformMiddlewares, createDiMiddleware];
 
   // Logger must be the last middleware in chain.
   if (process.env.NODE_ENV !== 'production') {
