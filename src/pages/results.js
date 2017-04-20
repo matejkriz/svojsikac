@@ -4,25 +4,30 @@ import Page from '../browser/layout/Page';
 import app from '../browser/app';
 import { gql, graphql } from 'react-apollo';
 
+const getTotalRate = (results) => results.reduce((acc, val) => acc + val.rate, 0);
+
 const ResultsPage = ({ data }) => (
   <Page>
-    <table>
-      <tr>
-        <th>
+    <div>
+      <div>
+        <span>
           Družina
-        </th>
-        { data.allEvents && data.allEvents.map((event) => (
-          <th key={event.id}>
-            {`„${event.title}“ ${event.name} (${event.maxRate})`}
-          </th>
-        ))}
-      </tr>
+        </span>
+        -
+        <span>
+          Body
+        </span>
+      </div>
+      <ul>
       { data.allGroups && data.allGroups.map((group) => (
-        <tr key={group.id}>
-          <th>{`${group.name}`}</th>
-        </tr>
+        <li key={group.id}>
+          <span>{`${group.name}`}</span>
+          -
+          <span>{getTotalRate(group.results)}</span>
+        </li>
       ))}
-    </table>
+      </ul>
+    </div>
     <style jsx>
       {
         `

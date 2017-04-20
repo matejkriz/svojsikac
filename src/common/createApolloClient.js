@@ -8,7 +8,6 @@ const createApolloClient = (
   initialState: Object,
 ) =>
   new ApolloClient({
-    // $FlowFixMe
     dataIdFromObject: result => result.id || null,
     initialState,
     networkInterface: createNetworkInterface({
@@ -18,6 +17,7 @@ const createApolloClient = (
       },
       uri: networkInterfaceUri,
     }),
+    // $FlowFixMe
     ssrMode: !process.browser,
   });
 

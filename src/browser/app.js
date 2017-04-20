@@ -5,13 +5,23 @@ import createApolloClient from '../common/createApolloClient';
 import { ApolloProvider, getDataFromTree } from 'react-apollo';
 import createReduxStore from '../common/createReduxStore';
 import withIntl from '../browser/components/withIntl';
+import injectTapEventPlugin from 'react-tap-event-plugin';
 
 // App composition root.
 // blog.ploeh.dk/2011/07/28/CompositionRoot
 
+// $FlowFixMe;
+const isServer = !process.browser;
+
+const singleRunOnClient = (run: Function): void => {
+  let registered;
+  return (...args) => {
+    if (isServer) return;
+    if (!registered) { registered = true; run(...args); }
+  };
+};
+
 const singletonOnClient = (create: Function) => {
-  // $FlowFixMe;
-  const isServer = !process.browser;
   let singleton;
   return (...args) => {
     if (isServer) return create(...args);
@@ -84,6 +94,9 @@ const app = (Component: any) => {
     const { headers, initialState } = props;
     const client = getApolloClient(headers, initialState);
     const store = getReduxStore(client);
+    // Needed for onTouchTap
+    // http://stackoverflow.com/a/34015469/988941
+    singleRunOnClient(injectTapEventPlugin);
     return renderApp(ComponentWithIntl, client, store, props);
   };
   App.getInitialProps = createGetInitialProps(ComponentWithIntl);
