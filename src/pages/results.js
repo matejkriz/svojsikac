@@ -8,26 +8,26 @@ const getTotalRate = (results) => results.reduce((acc, val) => acc + val.rate, 0
 
 const ResultsPage = ({ data }) => (
   <Page>
-    <div>
-      <div>
-        <span>
+    <table className="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+      <thead>
+      <tr>
+        <th className="mdl-data-table__cell--non-numeric">
           Družina
-        </span>
-        -
-        <span>
+        </th>
+        <th className="mdl-data-table__cell--non-numeric">
           Body
-        </span>
-      </div>
-      <ul>
-      { data.allGroups && data.allGroups.map((group) => (
-        <li key={group.id}>
-          <span>{`${group.name}`}</span>
-          -
-          <span>{getTotalRate(group.results)}</span>
-        </li>
-      ))}
-      </ul>
-    </div>
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+        { data.allGroups && data.allGroups.map((group) => (
+          <tr key={group.id}>
+            <td className="mdl-data-table__cell--non-numeric">{`${group.name}`}</td>
+            <td>{getTotalRate(group.results)}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
     <style jsx>
       {
         `
