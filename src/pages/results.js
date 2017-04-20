@@ -6,13 +6,23 @@ import { gql, graphql } from 'react-apollo';
 
 const ResultsPage = ({ data }) => (
   <Page>
-  <ul>
-    { data.allResults && data.allResults.map((result) => (
-      <li key={result.id}>
-        {result.rate}
-      </li>
-    ))}
-    </ul>
+    <table>
+      <tr>
+        <th>
+          Družina
+        </th>
+        { data.allEvents && data.allEvents.map((event) => (
+          <th key={event.id}>
+            {`„${event.title}“ ${event.name} (${event.maxRate})`}
+          </th>
+        ))}
+      </tr>
+      { data.allGroups && data.allGroups.map((group) => (
+        <tr key={group.id}>
+          <th>{`${group.name}`}</th>
+        </tr>
+      ))}
+    </table>
     <style jsx>
       {
         `
@@ -34,15 +44,26 @@ const ResultsPage = ({ data }) => (
 );
 
 export default app(graphql(gql`
-  query allResults {
-    allResults {
-      id
-      rate
-      comment
-      group {
-        id
-        name
-      }
-    }
+  query results {
+  allEvents {
+    id
+    maxRate
+    name
+    title
   }
+  allGroups {
+      id
+      name
+      category
+      results {
+        id
+        rate
+        event {
+          id
+          name
+          slug
+        }
+      }
+  }
+}
 `)(ResultsPage));

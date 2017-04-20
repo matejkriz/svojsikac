@@ -1,30 +1,17 @@
 import React from 'react';
 import Link from 'next/link';
-import LocaleSwitch from '../components/LocaleSwitch';
 
 export default () => (
   <header className="container">
     <div>
-      <span className="logo">ACTUM DEVSTACK </span>
-      <span className="desctiption">
-        (based on
-        {' '}
-        <a
-          className="link"
-          title="Este on github"
-          href="https://github.com/este"
-        >
-          Este
-        </a>
-        )
-      </span>
+      <span className="logo">Svojsíkáč</span>
     </div>
     <div className="menu">
       <nav>
-        <Link href="/"><a>Home</a></Link>
-        <Link href="/info"><a>Info</a></Link>
+        <Link href="/"><a>Domů</a></Link>
+        <Link href="/results"><a>Výsledky</a></Link>
+        <Link href="/rating"><a>Bodování</a></Link>
       </nav>
-      <LocaleSwitch className="locales" />
     </div>
 
     <style jsx>
@@ -32,14 +19,11 @@ export default () => (
         `
         .container {
           align-items: center;
-          background-color: #ed3d25;
+          background-color: #008836;
           color: white;
           display: flex;
           flex-direction: column;
           padding: 1em;
-        }
-        .description {
-          font-size: 0.7em;
         }
         .logo {
           font-family: Arial;

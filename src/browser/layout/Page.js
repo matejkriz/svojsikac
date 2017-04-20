@@ -37,8 +37,6 @@ const Page = ({ children, title }) => (
     </Head>
     <Header />
     <main className="main-container">{children}</main>
-    <Footer />
-
     <style jsx global>
       {
         `
@@ -79,7 +77,7 @@ const Page = ({ children, title }) => (
 );
 
 Page.defaultProps = {
-  title: 'Actum universal devstack',
+  title: 'Svojsíkáč',
 };
 
 Page.propTypes = {
