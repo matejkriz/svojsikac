@@ -17,10 +17,14 @@ export default class MyDocument extends Document {
     return (
       <html>
         <Head>
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"
-        />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"
+          />
+          <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+          <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.green-amber.min.css" />
+          <script defer src="https://code.getmdl.io/1.3.0/material.min.js" />
         </Head>
         <body>
           <Main />
