@@ -26,7 +26,7 @@ export default () => (
           padding: 1em;
         }
         .logo {
-          font-family: Arial;
+          font-family: 'Roboto', sans-serif;
           font-size: 1.5em;
         }
         .menu {
@@ -39,12 +39,11 @@ export default () => (
         }
         .link {
           color: white;
-          font-family: Arial;
           text-decoration: none;
         }
         nav a {
           color: white;
-          font-family: Arial;
+          font-family: 'Roboto', sans-serif;
           padding: 0.5em;
           text-decoration: none;
         }

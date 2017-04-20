@@ -1,7 +1,6 @@
 import React, { PropTypes } from 'react';
 import Head from 'next/head';
 import Header from './Header';
-import Footer from './Footer';
 
 const Page = ({ children, title }) => (
   <div className="page-container">
@@ -41,6 +40,7 @@ const Page = ({ children, title }) => (
       {
         `
         body {
+          font-family: 'Roboto', sans-serif;
           margin: 0;
         }
         `
